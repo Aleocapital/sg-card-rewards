@@ -253,6 +253,17 @@ body {
     color: var(--secondary);
 }
 
+.category-item.promo {
+    border: 1px dashed var(--secondary);
+    color: var(--secondary);
+}
+
+.category-item.promo.active {
+    background: var(--secondary);
+    color: #fff;
+    border-color: var(--secondary);
+}
+
 /* Footer */
 .footer {
     padding: 60px 0;

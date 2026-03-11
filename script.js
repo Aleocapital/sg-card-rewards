@@ -29,6 +29,11 @@ const cardData = {
             { name: "UOB PRVI Miles", reward: "1.4", label: "mpd", desc: "One of the best general spend rates in SG.", tag: "Highest Rate" },
             { name: "Citi PremierMiles", reward: "1.2", label: "mpd", desc: "The standard general spend card.", tag: "Reliable" },
             { name: "DBS Altitude", reward: "1.2", label: "mpd", desc: "Miles never expire. Safe long term bet.", tag: "Evergreen" }
+        ],
+        promos: [
+            { name: "Citi PremierMiles", reward: "30k", label: "miles", desc: "Spend S$800 within 60 days + pay annual fee.", tag: "March Special" },
+            { name: "DBS Altitude", reward: "25k", label: "miles", desc: "New-to-bank: Spend S$2,000 within 30 days.", tag: "Evergreen" },
+            { name: "StanChart Journey", reward: "45k", label: "miles", desc: "Spend S$3,000 in 60 days + pay fee. Great yield.", tag: "High Value" }
         ]
     },
     cashback: {
@@ -61,6 +66,11 @@ const cardData = {
             { name: "Citi Cash Back+", reward: "1.6", label: "%", desc: "Unlimited cashback. No minimum spend.", tag: "Unlimited" },
             { name: "Amex True Cashback", reward: "1.5", label: "%", desc: "Unlimited cashback. First S$5k spend at 3%.", tag: "Fast Start" },
             { name: "UOB Absolute Cash", reward: "1.7", label: "%", desc: "Highest unlimited rate, including insurance/bills.", tag: "Market Leader" }
+        ],
+        promos: [
+            { name: "Citi Cash Back", reward: "S$400", label: "cash", desc: "Spend S$500 by end of next month. New-to-bank.", tag: "March Gold Rush" },
+            { name: "SCB Bonus$aver", reward: "S$350", label: "cash", desc: "Spend S$800 in 30 days. High paynow bonus.", tag: "Limited Time" },
+            { name: "HSBC Visa Platinum", reward: "S$200", label: "cash", desc: "Spend S$1,000 + 1 GIRO. Great for families.", tag: "Family Pick" }
         ]
     }
 };
