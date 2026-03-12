@@ -9,6 +9,7 @@
     --border: #e2e8f0;
     --radius: 12px;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --card-bg-rgb: 255, 255, 255;
 }
 
 [data-theme="dark"] {
@@ -21,6 +22,7 @@
     --text-muted: #94a3b8;
     --border: #334155;
     --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    --card-bg-rgb: 30, 41, 59;
 }
 
 * {
@@ -584,7 +586,7 @@ body {
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
     position: sticky;
-    top: 85px;
+    top: 80px;
     z-index: 1000;
     transition: all 0.3s ease;
 }
@@ -743,7 +745,7 @@ body {
 
     /* Tab Layout Fixes */
     .main-tabs {
-        top: 70px; /* Aligned to new sticky header height */
+        top: 70px; /* Flush with sticky header */
         border-radius: 12px;
         justify-content: flex-start;
         overflow-x: auto;
