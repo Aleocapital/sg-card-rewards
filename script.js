@@ -443,10 +443,70 @@ function initComparison() {
     s2.addEventListener('change', updateCompare);
 }
 
+// Reward Calculator Logic
+function initCalculator() {
+    const strategy = document.getElementById('calc-strategy');
+    const spend = document.getElementById('calc-spend');
+    const mileValue = document.getElementById('calc-mile-value');
+    const rewardsRaw = document.getElementById('annual-rewards-raw');
+    const rewardsUnit = document.getElementById('annual-rewards-unit');
+    const cashValue = document.getElementById('annual-cash-value');
+
+    if (!strategy || !spend || !mileValue) return;
+
+    const calculate = () => {
+        const monthlySpend = parseFloat(spend.value) || 0;
+        const valuation = parseFloat(mileValue.value) || 0;
+        const selected = strategy.value;
+
+        let annualRewards = 0;
+        let annualCash = 0;
+        let unit = "Miles";
+
+        if (selected === 'miles') {
+            annualRewards = monthlySpend * 4 * 12;
+            annualCash = annualRewards * valuation;
+            unit = "Miles";
+        } else if (selected === 'cashback') {
+            annualCash = monthlySpend * 0.06 * 12; // 6% avg for optimized cashback
+            annualRewards = annualCash;
+            unit = "Cashback";
+        } else if (selected === 'general') {
+            annualRewards = monthlySpend * 1.2 * 12;
+            annualCash = annualRewards * valuation;
+            unit = "Miles";
+        }
+
+        rewardsRaw.textContent = unit === "Miles" 
+            ? Math.round(annualRewards).toLocaleString() 
+            : `S$${Math.round(annualCash).toLocaleString()}`;
+        
+        rewardsUnit.textContent = unit;
+        cashValue.textContent = `S$${Math.round(annualCash).toLocaleString()}`;
+    };
+
+    strategy.addEventListener('change', calculate);
+    spend.addEventListener('input', calculate);
+    mileValue.addEventListener('input', calculate);
+    
+    // Toggle mile valuation visibility
+    strategy.addEventListener('change', () => {
+        const valGroup = mileValue.parentElement;
+        if (strategy.value === 'cashback') {
+            valGroup.style.display = 'none';
+        } else {
+            valGroup.style.display = 'block';
+        }
+    });
+
+    calculate();
+}
+
 // Initial Render
 renderCards();
 initComparison();
 initMCCLookup();
+initCalculator();
 
 // Animation CSS
 const style = document.createElement('style');

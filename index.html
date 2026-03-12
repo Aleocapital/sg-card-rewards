@@ -37,6 +37,7 @@
             <div class="theme-toggle-container">
                 <a href="#pro-tips">Strategy</a>
                 <a href="#compare" class="nav-link">Compare</a>
+                <a href="#calculator" class="nav-link">Calculator</a>
                 <a href="#mcc-lookup" class="nav-link">MCC Lookup</a>
                 <button id="theme-toggle" class="btn-icon">🌙</button>
             </div>
@@ -75,6 +76,53 @@
                     <div id="results-container" class="results-container">
                         <!-- Cards will be injected here by JavaScript -->
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="section calc-section alt-bg">
+        <div class="container">
+            <h2>🧮 Rewards Value Calculator</h2>
+            <p class="section-intro">Estimate the potential value of your annual credit card rewards based on your spending.</p>
+            
+            <div class="calculator-card">
+                <div class="calc-grid">
+                    <div class="calc-inputs">
+                        <div class="calc-group">
+                            <label>Monthly Spending Strategy</label>
+                            <select id="calc-strategy" class="calc-select">
+                                <option value="miles">Optimized Miles (4.0 MPD avg)</option>
+                                <option value="cashback">Max Cashback (5-8% avg)</option>
+                                <option value="general">General Spend (1.2 MPD / 1.6% avg)</option>
+                            </select>
+                        </div>
+                        <div class="calc-group">
+                            <label>Total Monthly Spend (S$)</label>
+                            <input type="number" id="calc-spend" value="2000" class="calc-input">
+                        </div>
+                        <div class="calc-group">
+                            <label>Valuation of 1 Mile (S$)</label>
+                            <input type="number" id="calc-mile-value" value="0.015" step="0.001" class="calc-input">
+                            <small>Typical value is S$0.01 to S$0.02</small>
+                        </div>
+                    </div>
+                    
+                    <div class="calc-output">
+                        <div class="output-item">
+                            <span class="output-label">Annual Rewards Earned</span>
+                            <span id="annual-rewards-raw" class="output-value">80,000</span>
+                            <span id="annual-rewards-unit" class="output-unit">Miles</span>
+                        </div>
+                        <div class="output-item highlight">
+                            <span class="output-label">Estimated Cash Value</span>
+                            <span id="annual-cash-value" class="output-value">S$1,200</span>
+                            <span class="output-unit">per year</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="calc-info">
+                    <p>💡 <strong>Note:</strong> This assumes you use specialized cards for your spending categories. Optimized miles strategy assumes you stay within monthly caps.</p>
                 </div>
             </div>
         </div>
