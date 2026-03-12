@@ -359,6 +359,111 @@ body {
     }
 }
 
+/* MCC Lookup Styles */
+.lookup-container {
+    max-width: 700px;
+    margin: 40px auto 0;
+}
+
+.search-box-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.lookup-input {
+    width: 100%;
+    padding: 18px 25px 18px 55px;
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    background: var(--card-bg);
+    color: var(--text);
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+}
+
+.lookup-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+
+.mcc-results-container {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.mcc-placeholder {
+    padding: 40px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.mcc-result-item {
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.mcc-result-item:last-child {
+    border-bottom: none;
+}
+
+.mcc-merchant-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.mcc-code-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: rgba(59, 130, 246, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.mcc-category {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.mcc-card-rec {
+    text-align: right;
+}
+
+.mcc-card-name {
+    display: block;
+    font-weight: 700;
+    color: var(--secondary);
+    font-size: 0.95rem;
+}
+
+.mcc-reward-rate {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Footer */
 .footer {
     padding: 60px 0;

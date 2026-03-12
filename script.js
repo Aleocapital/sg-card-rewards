@@ -314,6 +314,78 @@ const comparisonData = [
     }
 ];
 
+// MCC Data
+const mccData = [
+    { merchant: "Shopee", mcc: "5311", category: "Online Dept Store", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" },
+    { merchant: "Lazada", mcc: "5311", category: "Online Dept Store", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" },
+    { merchant: "Amazon SG", mcc: "5311", category: "Online Dept Store", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" },
+    { merchant: "Grab Food", mcc: "5812", category: "Dining/Delivery", card: "HSBC Revolution / UOB Lady's", rate: "4.0 - 6.0 mpd" },
+    { merchant: "Grab Rides", mcc: "4121", category: "Transport", card: "UOB Lady's / Amex KF", rate: "3.1 - 6.0 mpd" },
+    { merchant: "Foodpanda", mcc: "5812", category: "Dining/Delivery", card: "HSBC Revolution / UOB Lady's", rate: "4.0 - 6.0 mpd" },
+    { merchant: "Deliveroo", mcc: "5812", category: "Dining/Delivery", card: "HSBC Revolution / UOB Lady's", rate: "4.0 - 6.0 mpd" },
+    { merchant: "FairPrice / NTUC", mcc: "5411", category: "Grocery", card: "UOB One / Trust / Maybank F&F", rate: "Up to 15% cashback" },
+    { merchant: "Cold Storage", mcc: "5411", category: "Grocery", card: "UOB One / HSBC Rev", rate: "Up to 10% / 4 mpd" },
+    { merchant: "Don Don Donki", mcc: "5411", category: "Grocery", card: "HSBC Revolution", rate: "4.0 mpd" },
+    { merchant: "RedMart", mcc: "5411", category: "Online Grocery", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" },
+    { merchant: "Uniqlo", mcc: "5651", category: "Clothing", card: "Citi Rewards / OCBC Rewards", rate: "4.0 mpd" },
+    { merchant: "Zara", mcc: "5651", category: "Clothing", card: "Citi Rewards / OCBC Rewards", rate: "4.0 mpd" },
+    { merchant: "Netflix", mcc: "4899", category: "Entertainment", card: "UOB Lady's / HSBC Rev", rate: "4.0 - 6.0 mpd" },
+    { merchant: "Spotify", mcc: "4899", category: "Entertainment", card: "UOB Lady's / HSBC Rev", rate: "4.0 - 6.0 mpd" },
+    { merchant: "Disney+", mcc: "4899", category: "Entertainment", card: "UOB Lady's / HSBC Rev", rate: "4.0 - 6.0 mpd" },
+    { merchant: "Starbucks", mcc: "5814", category: "Fast Food", card: "UOB Lady's / HSBC Rev", rate: "4.0 - 6.0 mpd" },
+    { merchant: "McDonald's", mcc: "5814", category: "Fast Food", card: "UOB Lady's / HSBC Rev", rate: "4.0 - 6.0 mpd" },
+    { merchant: "IKEA", mcc: "5712", category: "Furniture", card: "OCBC Rewards / Citi Rewards", rate: "4.0 mpd" },
+    { merchant: "Courts", mcc: "5732", category: "Electronics", card: "OCBC Rewards / Citi Rewards", rate: "4.0 mpd" },
+    { merchant: "Harvey Norman", mcc: "5732", category: "Electronics", card: "OCBC Rewards / Citi Rewards", rate: "4.0 mpd" },
+    { merchant: "Shell", mcc: "5541", category: "Petrol", card: "Citi Cash Back / UOB One", rate: "Up to 21% savings" },
+    { merchant: "Esso", mcc: "5541", category: "Petrol", card: "DBS Esso / Citi Cash Back", rate: "Up to 21% savings" },
+    { merchant: "Caltex", mcc: "5541", category: "Petrol", card: "OCBC 365 / HSBC Visa Plat", rate: "Up to 18% savings" },
+    { merchant: "KrisShop", mcc: "5309", category: "Duty Free", card: "Amex KF / Citi Rewards", rate: "Up to 4.0 mpd" },
+    { merchant: "Agoda", mcc: "7011", category: "Hotel/Travel", card: "DBS Altitude / UOB PRVI", rate: "Up to 10.0 mpd" },
+    { merchant: "Expedia", mcc: "4722", category: "Travel Agency", card: "DBS Altitude / UOB PRVI", rate: "Up to 10.0 mpd" },
+    { merchant: "Klook", mcc: "4722", category: "Travel Agency", card: "DBS WWMC / Citi Rewards", rate: "4.0 mpd" },
+    { merchant: "Zalora", mcc: "5651", category: "Online Fashion", card: "Citi Rewards / OCBC Rewards", rate: "4.0 mpd" },
+    { merchant: "Taobao", mcc: "5311", category: "Online Dept Store", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" }
+];
+
+function initMCCLookup() {
+    const searchInput = document.getElementById('mcc-search');
+    const resultsContainer = document.getElementById('mcc-results');
+
+    if (!searchInput || !resultsContainer) return;
+
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        
+        if (query.length < 2) {
+            resultsContainer.innerHTML = '<div class="mcc-placeholder">Type a merchant name to see recommendations</div>';
+            return;
+        }
+
+        const matches = mccData.filter(item => 
+            item.merchant.toLowerCase().includes(query) || 
+            item.category.toLowerCase().includes(query)
+        );
+
+        if (matches.length > 0) {
+            resultsContainer.innerHTML = matches.map(item => `
+                <div class="mcc-result-item">
+                    <div class="mcc-merchant-info">
+                        <h4>${item.merchant} <span class="mcc-code-tag">MCC ${item.mcc}</span></h4>
+                        <span class="mcc-category">${item.category}</span>
+                    </div>
+                    <div class="mcc-card-rec">
+                        <span class="mcc-card-name">${item.card}</span>
+                        <span class="mcc-reward-rate">${item.rate}</span>
+                    </div>
+                </div>
+            `).join('');
+        } else {
+            resultsContainer.innerHTML = '<div class="mcc-placeholder">No merchants found. Try another name!</div>';
+        }
+    });
+}
+
 function initComparison() {
     const s1 = document.getElementById('card-select-1');
     const s2 = document.getElementById('card-select-2');
@@ -374,6 +446,7 @@ function initComparison() {
 // Initial Render
 renderCards();
 initComparison();
+initMCCLookup();
 
 // Animation CSS
 const style = document.createElement('style');

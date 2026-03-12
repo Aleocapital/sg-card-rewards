@@ -37,6 +37,7 @@
             <div class="theme-toggle-container">
                 <a href="#pro-tips">Strategy</a>
                 <a href="#compare" class="nav-link">Compare</a>
+                <a href="#mcc-lookup" class="nav-link">MCC Lookup</a>
                 <button id="theme-toggle" class="btn-icon">🌙</button>
             </div>
         </div>
@@ -74,6 +75,25 @@
                     <div id="results-container" class="results-container">
                         <!-- Cards will be injected here by JavaScript -->
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mcc-lookup" class="section mcc-section">
+        <div class="container">
+            <h2>🔍 Merchant MCC Lookup</h2>
+            <p class="section-intro">Find the Merchant Category Code (MCC) and the best card for popular merchants in Singapore.</p>
+            
+            <div class="lookup-container">
+                <div class="search-box-wrapper">
+                    <input type="text" id="mcc-search" placeholder="Search merchant (e.g. Shopee, Grab, Fairprice...)" class="lookup-input">
+                    <span class="search-icon">🔍</span>
+                </div>
+
+                <div id="mcc-results" class="mcc-results-container">
+                    <!-- Results will be injected here -->
+                    <div class="mcc-placeholder">Type a merchant name to see recommendations</div>
                 </div>
             </div>
         </div>
