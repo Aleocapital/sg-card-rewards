@@ -54,6 +54,8 @@ body {
 .main-content {
     width: 100%;
     min-width: 0;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .results-container {
@@ -73,6 +75,8 @@ body {
     gap: 25px;
     align-items: center;
     width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 .header {
     height: 70px;
