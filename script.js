@@ -160,6 +160,69 @@ const comparisonData = [
         bestFor: "Dining & Groceries"
     },
     { 
+        name: "UOB Lady's Card", 
+        type: "Miles", 
+        bonus: "Up to 6 mpd", 
+        base: "0.4 mpd", 
+        cap: "S$1,000/mo", 
+        fee: "S$196.20 (Waivable)",
+        bestFor: "Customizable categories"
+    },
+    { 
+        name: "UOB Preferred Platinum Visa", 
+        type: "Miles", 
+        bonus: "4 mpd contactless", 
+        base: "0.4 mpd", 
+        cap: "S$1,110/mo", 
+        fee: "S$196.20 (Waivable)",
+        bestFor: "Daily Apple/Google Pay"
+    },
+    { 
+        name: "DBS Altitude", 
+        type: "Miles", 
+        bonus: "Up to 10 mpd (travel)", 
+        base: "1.2 mpd", 
+        cap: "No cap (standard categories)", 
+        fee: "S$196.20 (Waivable)",
+        bestFor: "Evergreen miles"
+    },
+    { 
+        name: "Citi PremierMiles", 
+        type: "Miles", 
+        bonus: "Up to 10 mpd (travel)", 
+        base: "1.2 mpd", 
+        cap: "No cap", 
+        fee: "S$196.20 (Waivable)",
+        bestFor: "Lounge access & partners"
+    },
+    { 
+        name: "UOB PRVI Miles", 
+        type: "Miles", 
+        bonus: "2.4 mpd (FCY)", 
+        base: "1.4 mpd", 
+        cap: "No cap", 
+        fee: "S$259.20 (Waivable)",
+        bestFor: "General & Overseas spend"
+    },
+    { 
+        name: "OCBC Titanium Rewards", 
+        type: "Miles", 
+        bonus: "4 mpd (shopping)", 
+        base: "0.4 mpd", 
+        cap: "S$13,335/year", 
+        fee: "S$196.20 (Waivable)",
+        bestFor: "Big electronic purchases"
+    },
+    { 
+        name: "Amex KrisFlyer", 
+        type: "Miles", 
+        bonus: "Up to 3.1 mpd (Grab)", 
+        base: "1.1 mpd", 
+        cap: "No cap", 
+        fee: "S$178.20 (Waivable)",
+        bestFor: "Direct miles to KF"
+    },
+    { 
         name: "UOB One Card", 
         type: "Cashback", 
         bonus: "Up to 10%", 
@@ -185,6 +248,51 @@ const comparisonData = [
         cap: "No Cap", 
         fee: "S$196.20 (Waivable)",
         bestFor: "General spending"
+    },
+    { 
+        name: "Maybank Family & Friends", 
+        type: "Cashback", 
+        bonus: "8%", 
+        base: "0.3%", 
+        cap: "S$125/mo", 
+        fee: "S$196.20 (Waivable)",
+        bestFor: "Groceries & Transport"
+    },
+    { 
+        name: "OCBC 365", 
+        type: "Cashback", 
+        bonus: "6% (dining)", 
+        base: "0.3%", 
+        cap: "S$80/mo", 
+        fee: "S$196.20 (Waivable)",
+        bestFor: "Dining & Bills"
+    },
+    { 
+        name: "HSBC Visa Platinum", 
+        type: "Cashback", 
+        bonus: "5%", 
+        base: "0.4%", 
+        cap: "S$250/quarter", 
+        fee: "S$196.20 (Waivable)",
+        bestFor: "Family utilities & petrol"
+    },
+    { 
+        name: "UOB Absolute Cashback", 
+        type: "Cashback", 
+        bonus: "1.7% Unlimited", 
+        base: "1.7%", 
+        cap: "No Cap", 
+        fee: "S$196.20 (Waivable)",
+        bestFor: "Insurance & Grab top-ups"
+    },
+    { 
+        name: "Citi Cash Back Card", 
+        type: "Cashback", 
+        bonus: "8% (Grocery/Petrol)", 
+        base: "0.25%", 
+        cap: "S$80/mo", 
+        fee: "S$196.20 (Waivable)",
+        bestFor: "Motorists & Home cooks"
     }
 ];
 
