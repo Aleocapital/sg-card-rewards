@@ -50,6 +50,9 @@ body {
     align-items: center;
     border-bottom: 1px solid var(--border);
     background: var(--card-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1100;
 }
 
 .header .container {
@@ -581,8 +584,20 @@ body {
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
     position: sticky;
-    top: 90px;
-    z-index: 100;
+    top: 85px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Add a subtle glass effect when sticky */
+.main-tabs {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(var(--card-bg-rgb, 255, 255, 255), 0.8);
+}
+
+[data-theme="dark"] .main-tabs {
+    background: rgba(30, 41, 59, 0.8);
 }
 
 .tab-btn {
