@@ -502,11 +502,39 @@ function initCalculator() {
     calculate();
 }
 
+// Tab Switching Logic
+function initTabs() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.tab;
+
+            // Update buttons
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Update content
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === target) {
+                    content.classList.add('active');
+                }
+            });
+
+            // Scroll to top of section
+            window.scrollTo({ top: document.querySelector('.optimizer-section').offsetTop - 100, behavior: 'smooth' });
+        });
+    });
+}
+
 // Initial Render
 renderCards();
 initComparison();
 initMCCLookup();
 initCalculator();
+initTabs();
 
 // Animation CSS
 const style = document.createElement('style');

@@ -35,10 +35,6 @@
         <div class="container">
             <div class="logo">💳 SG Card Rewards</div>
             <div class="theme-toggle-container">
-                <a href="#pro-tips">Strategy</a>
-                <a href="#compare" class="nav-link">Compare</a>
-                <a href="#calculator" class="nav-link">Calculator</a>
-                <a href="#mcc-lookup" class="nav-link">MCC Lookup</a>
                 <button id="theme-toggle" class="btn-icon">🌙</button>
             </div>
         </div>
@@ -58,131 +54,130 @@
 
     <section class="optimizer-section">
         <div class="container">
-            <div class="optimizer-grid">
-                <div class="sidebar">
-                    <h3>Spending Category</h3>
-                    <ul class="category-list">
-                        <li class="category-item active" data-category="online">🛍️ Online Shopping</li>
-                        <li class="category-item" data-category="dining">🍽️ Dining</li>
-                        <li class="category-item" data-category="grocery">🛒 Groceries</li>
-                        <li class="category-item" data-category="travel">✈️ Travel & Flights</li>
-                        <li class="category-item" data-category="foreign">🌏 Foreign Currency</li>
-                        <li class="category-item" data-category="general">🃏 General Spending</li>
-                        <li class="category-item promo" data-category="promos">🎁 Sign-up Bonuses</li>
-                    </ul>
-                </div>
+            <!-- New Tab Navigation -->
+            <div class="main-tabs">
+                <button class="tab-btn active" data-tab="optimizer">🚀 Best Cards</button>
+                <button class="tab-btn" data-tab="compare">⚖️ Compare</button>
+                <button class="tab-btn" data-tab="calculator">🧮 Calculator</button>
+                <button class="tab-btn" data-tab="mcc-lookup">🔍 MCC Lookup</button>
+            </div>
 
-                <div class="main-content">
-                    <div id="results-container" class="results-container">
-                        <!-- Cards will be injected here by JavaScript -->
+            <!-- Tab Content: Optimizer -->
+            <div id="optimizer" class="tab-content active">
+                <div class="optimizer-grid">
+                    <div class="sidebar">
+                        <h3>Spending Category</h3>
+                        <ul class="category-list">
+                            <li class="category-item active" data-category="online">🛍️ Online Shopping</li>
+                            <li class="category-item" data-category="dining">🍽️ Dining</li>
+                            <li class="category-item" data-category="grocery">🛒 Groceries</li>
+                            <li class="category-item" data-category="travel">✈️ Travel & Flights</li>
+                            <li class="category-item" data-category="foreign">🌏 Foreign Currency</li>
+                            <li class="category-item" data-category="general">🃏 General Spending</li>
+                            <li class="category-item promo" data-category="promos">🎁 Sign-up Bonuses</li>
+                        </ul>
+                    </div>
+                    <div class="main-content">
+                        <div id="results-container" class="results-container">
+                            <!-- Cards will be injected here by JavaScript -->
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="calculator" class="section calc-section alt-bg">
-        <div class="container">
-            <h2>🧮 Rewards Value Calculator</h2>
-            <p class="section-intro">Estimate the potential value of your annual credit card rewards based on your spending.</p>
-            
-            <div class="calculator-card">
-                <div class="calc-grid">
-                    <div class="calc-inputs">
-                        <div class="calc-group">
-                            <label>Monthly Spending Strategy</label>
-                            <select id="calc-strategy" class="calc-select">
-                                <option value="miles">Optimized Miles (4.0 MPD avg)</option>
-                                <option value="cashback">Max Cashback (5-8% avg)</option>
-                                <option value="general">General Spend (1.2 MPD / 1.6% avg)</option>
+            <!-- Tab Content: Compare -->
+            <div id="compare" class="tab-content">
+                <div class="container-small">
+                    <h2>Compare Credit Cards</h2>
+                    <p class="section-intro">Select two cards to compare rewards and features side-by-side.</p>
+                    <div class="compare-controls">
+                        <div class="compare-select-wrapper">
+                            <select id="card-select-1" class="compare-select">
+                                <option value="">Select First Card</option>
                             </select>
                         </div>
-                        <div class="calc-group">
-                            <label>Total Monthly Spend (S$)</label>
-                            <input type="number" id="calc-spend" value="2000" class="calc-input">
-                        </div>
-                        <div class="calc-group">
-                            <label>Valuation of 1 Mile (S$)</label>
-                            <input type="number" id="calc-mile-value" value="0.015" step="0.001" class="calc-input">
-                            <small>Typical value is S$0.01 to S$0.02</small>
+                        <div class="compare-vs">VS</div>
+                        <div class="compare-select-wrapper">
+                            <select id="card-select-2" class="compare-select">
+                                <option value="">Select Second Card</option>
+                            </select>
                         </div>
                     </div>
-                    
-                    <div class="calc-output">
-                        <div class="output-item">
-                            <span class="output-label">Annual Rewards Earned</span>
-                            <span id="annual-rewards-raw" class="output-value">80,000</span>
-                            <span id="annual-rewards-unit" class="output-unit">Miles</span>
-                        </div>
-                        <div class="output-item highlight">
-                            <span class="output-label">Estimated Cash Value</span>
-                            <span id="annual-cash-value" class="output-value">S$1,200</span>
-                            <span class="output-unit">per year</span>
+                    <div id="compare-table-container" class="compare-table-container hidden">
+                        <table class="compare-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th id="compare-name-1">Card 1</th>
+                                    <th id="compare-name-2">Card 2</th>
+                                </tr>
+                            </thead>
+                            <tbody id="compare-body"></tbody>
+                        </table>
+                    </div>
+                    <div id="compare-placeholder" class="compare-placeholder">
+                        <p>Choose two cards above to see the comparison</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Calculator -->
+            <div id="calculator" class="tab-content">
+                <div class="container-small">
+                    <h2>Rewards Value Calculator</h2>
+                    <p class="section-intro">Estimate the potential value of your annual rewards.</p>
+                    <div class="calculator-card">
+                        <div class="calc-grid">
+                            <div class="calc-inputs">
+                                <div class="calc-group">
+                                    <label>Spending Strategy</label>
+                                    <select id="calc-strategy" class="calc-select">
+                                        <option value="miles">Optimized Miles (4.0 MPD avg)</option>
+                                        <option value="cashback">Max Cashback (5-8% avg)</option>
+                                        <option value="general">General Spend (1.2 MPD / 1.6% avg)</option>
+                                    </select>
+                                </div>
+                                <div class="calc-group">
+                                    <label>Monthly Spend (S$)</label>
+                                    <input type="number" id="calc-spend" value="2000" class="calc-input">
+                                </div>
+                                <div class="calc-group">
+                                    <label>Valuation of 1 Mile (S$)</label>
+                                    <input type="number" id="calc-mile-value" value="0.015" step="0.001" class="calc-input">
+                                </div>
+                            </div>
+                            <div class="calc-output">
+                                <div class="output-item">
+                                    <span class="output-label">Annual Rewards</span>
+                                    <span id="annual-rewards-raw" class="output-value">80,000</span>
+                                    <span id="annual-rewards-unit" class="output-unit">Miles</span>
+                                </div>
+                                <div class="output-item highlight">
+                                    <span class="output-label">Estimated Cash Value</span>
+                                    <span id="annual-cash-value" class="output-value">S$1,200</span>
+                                    <span class="output-unit">per year</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="calc-info">
-                    <p>💡 <strong>Note:</strong> This assumes you use specialized cards for your spending categories. Optimized miles strategy assumes you stay within monthly caps.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="mcc-lookup" class="section mcc-section">
-        <div class="container">
-            <h2>🔍 Merchant MCC Lookup</h2>
-            <p class="section-intro">Find the Merchant Category Code (MCC) and the best card for popular merchants in Singapore.</p>
-            
-            <div class="lookup-container">
-                <div class="search-box-wrapper">
-                    <input type="text" id="mcc-search" placeholder="Search merchant (e.g. Shopee, Grab, Fairprice...)" class="lookup-input">
-                    <span class="search-icon">🔍</span>
-                </div>
-
-                <div id="mcc-results" class="mcc-results-container">
-                    <!-- Results will be injected here -->
-                    <div class="mcc-placeholder">Type a merchant name to see recommendations</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="compare" class="section compare-section alt-bg">
-        <div class="container">
-            <h2>⚖️ Compare Credit Cards</h2>
-            <p class="section-intro">Select two cards to compare their rewards and features side-by-side.</p>
-            
-            <div class="compare-controls">
-                <div class="compare-select-wrapper">
-                    <select id="card-select-1" class="compare-select">
-                        <option value="">Select First Card</option>
-                    </select>
-                </div>
-                <div class="compare-vs">VS</div>
-                <div class="compare-select-wrapper">
-                    <select id="card-select-2" class="compare-select">
-                        <option value="">Select Second Card</option>
-                    </select>
-                </div>
             </div>
 
-            <div id="compare-table-container" class="compare-table-container hidden">
-                <table class="compare-table">
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th id="compare-name-1">Card 1</th>
-                            <th id="compare-name-2">Card 2</th>
-                        </tr>
-                    </thead>
-                    <tbody id="compare-body">
-                        <!-- Comparison rows will be injected here -->
-                    </tbody>
-                </table>
-            </div>
-            
-            <div id="compare-placeholder" class="compare-placeholder">
-                <p>Choose two cards above to see the comparison</p>
+            <!-- Tab Content: MCC Lookup -->
+            <div id="mcc-lookup" class="tab-content">
+                <div class="container-small">
+                    <h2>Merchant MCC Lookup</h2>
+                    <p class="section-intro">Find the best card for popular merchants.</p>
+                    <div class="lookup-container">
+                        <div class="search-box-wrapper">
+                            <input type="text" id="mcc-search" placeholder="Search merchant (e.g. Shopee, Grab...)" class="lookup-input">
+                            <span class="search-icon">🔍</span>
+                        </div>
+                        <div id="mcc-results" class="mcc-results-container">
+                            <div class="mcc-placeholder">Type a merchant name to see recommendations</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
