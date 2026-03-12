@@ -428,9 +428,9 @@ function initComparison() {
 
             document.getElementById('compare-body').innerHTML = features.map(f => `
                 <tr>
-                    <td class="feature-name" data-label="Feature">${f.label}</td>
-                    <td data-label="${c1.name}">${c1[f.key]}</td>
-                    <td data-label="${c2.name}">${c2[f.key]}</td>
+                    <td class="feature-name">${f.label}</td>
+                    <td>${c1[f.key]}</td>
+                    <td>${c2[f.key]}</td>
                 </tr>
             `).join('');
         } else {
