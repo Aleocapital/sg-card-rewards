@@ -529,12 +529,37 @@ function initTabs() {
     });
 }
 
+// Travel Hack Calculator Logic
+function initTravelCalc() {
+    const spendInput = document.getElementById('travel-spend');
+    if (!spendInput) return;
+
+    const updateTravel = () => {
+        const spend = parseFloat(spendInput.value) || 0;
+        
+        // Amaze + 4MPD: 4 MPD, ~1.8% spread
+        document.getElementById('amaze-miles').textContent = `${(spend * 4).toLocaleString()} Miles`;
+        document.getElementById('amaze-fee').textContent = `S$${(spend * 0.018).toFixed(2)}`;
+
+        // Direct Card: 2.4 MPD, 3.25% fee
+        document.getElementById('direct-miles').textContent = `${(spend * 2.4).toLocaleString()} Miles`;
+        document.getElementById('direct-fee').textContent = `S$${(spend * 0.0325).toFixed(2)}`;
+
+        // Wallets: 0 Miles, ~0.5% spread
+        document.getElementById('wallet-fee').textContent = `S$${(spend * 0.005).toFixed(2)}`;
+    };
+
+    spendInput.addEventListener('input', updateTravel);
+    updateTravel();
+}
+
 // Initial Render
 renderCards();
 initComparison();
 initMCCLookup();
 initCalculator();
 initTabs();
+initTravelCalc();
 
 // Animation CSS
 const style = document.createElement('style');

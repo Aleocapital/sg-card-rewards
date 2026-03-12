@@ -72,6 +72,10 @@
                     <div class="feature-icon-wrapper">✈️</div>
                     <span class="feature-label">Partners</span>
                 </button>
+                <button class="feature-item" data-tab="travel-hack">
+                    <div class="feature-icon-wrapper">🌏</div>
+                    <span class="feature-label">Travel Hack</span>
+                </button>
                 <button class="feature-item" data-tab="mcc-lookup">
                     <div class="feature-icon-wrapper">🔍</div>
                     <span class="feature-label">MCC Lookup</span>
@@ -251,6 +255,70 @@
                             </ul>
                             <p class="bank-pro-tip"><strong>Pro Tip:</strong> Zero conversion fees! TravelOne has instant transfers.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Travel Hack -->
+            <div id="travel-hack" class="tab-content">
+                <div class="container-small">
+                    <h2>🌏 The Overseas Spending Hack</h2>
+                    <p class="section-intro">Stop paying the "Bank Tax". Compare Amaze vs. Direct Credit Cards vs. Multi-Currency Wallets.</p>
+                    
+                    <div class="travel-calc-card">
+                        <div class="calc-inputs">
+                            <div class="calc-group">
+                                <label>Planned Overseas Spend (S$ equivalent)</label>
+                                <input type="number" id="travel-spend" value="2000" class="calc-input">
+                            </div>
+                        </div>
+
+                        <div class="travel-results-grid">
+                            <div class="travel-res-card best">
+                                <div class="res-badge">Recommended</div>
+                                <h4>Instarem Amaze + 4MPD Card</h4>
+                                <div class="res-stat">
+                                    <span class="res-label">Rewards</span>
+                                    <span id="amaze-miles" class="res-value">8,000 Miles</span>
+                                </div>
+                                <div class="res-stat">
+                                    <span class="res-label">FX Fees/Spread (~1.8%)</span>
+                                    <span id="amaze-fee" class="res-value cost">S$36</span>
+                                </div>
+                                <p class="res-note">Best of both worlds: 4 MPD + low FX fees.</p>
+                            </div>
+
+                            <div class="travel-res-card">
+                                <h4>Direct Credit Card (2.4 MPD)</h4>
+                                <div class="res-stat">
+                                    <span class="res-label">Rewards</span>
+                                    <span id="direct-miles" class="res-value">4,800 Miles</span>
+                                </div>
+                                <div class="res-stat">
+                                    <span class="res-label">Bank FCY Fee (3.25%)</span>
+                                    <span id="direct-fee" class="res-value cost">S$65</span>
+                                </div>
+                                <p class="res-note">High fees often negate the value of miles earned.</p>
+                            </div>
+
+                            <div class="travel-res-card">
+                                <h4>YouTrip / Revolut</h4>
+                                <div class="res-stat">
+                                    <span class="res-label">Rewards</span>
+                                    <span class="res-value">0 Miles</span>
+                                </div>
+                                <div class="res-stat">
+                                    <span class="res-label">FX Fees/Spread (~0.5%)</span>
+                                    <span id="wallet-fee" class="res-value">S$10</span>
+                                </div>
+                                <p class="res-note">Best exchange rates, but zero rewards earned.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pro-tips-mini">
+                        <h4>💡 Pro Tip for 2026:</h4>
+                        <p>Link your <strong>Citi Rewards Mastercard</strong> or <strong>DBS Woman's World Mastercard</strong> to Amaze to convert offline overseas spending into "Online SGD" spending, triggering the 4 MPD bonus!</p>
                     </div>
                 </div>
             </div>
