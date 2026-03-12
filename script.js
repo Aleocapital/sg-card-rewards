@@ -139,6 +139,7 @@ const comparisonData = [
         base: "0.4 mpd", 
         cap: "S$2,000/mo", 
         fee: "S$196.20 (Waivable)",
+        lounge: "None",
         bestFor: "Online everything"
     },
     { 
@@ -148,6 +149,7 @@ const comparisonData = [
         base: "0.4 mpd", 
         cap: "S$1,000/mo", 
         fee: "S$196.20 (Waivable)",
+        lounge: "None",
         bestFor: "Shopping & Amaze hack"
     },
     { 
@@ -157,6 +159,7 @@ const comparisonData = [
         base: "None", 
         cap: "S$1,000/mo", 
         fee: "Permanent Waiver",
+        lounge: "None",
         bestFor: "Dining & Groceries"
     },
     { 
@@ -166,6 +169,7 @@ const comparisonData = [
         base: "0.4 mpd", 
         cap: "S$1,000/mo", 
         fee: "S$196.20 (Waivable)",
+        lounge: "None",
         bestFor: "Customizable categories"
     },
     { 
@@ -175,6 +179,7 @@ const comparisonData = [
         base: "0.4 mpd", 
         cap: "S$1,110/mo", 
         fee: "S$196.20 (Waivable)",
+        lounge: "None",
         bestFor: "Daily Apple/Google Pay"
     },
     { 
@@ -184,6 +189,7 @@ const comparisonData = [
         base: "1.2 mpd", 
         cap: "No cap (standard categories)", 
         fee: "S$196.20 (Waivable)",
+        lounge: "2x Priority Pass (Visa only)",
         bestFor: "Evergreen miles"
     },
     { 
@@ -193,6 +199,7 @@ const comparisonData = [
         base: "1.2 mpd", 
         cap: "No cap", 
         fee: "S$196.20 (Waivable)",
+        lounge: "2x Priority Pass",
         bestFor: "Lounge access & partners"
     },
     { 
@@ -202,6 +209,7 @@ const comparisonData = [
         base: "1.4 mpd", 
         cap: "No cap", 
         fee: "S$259.20 (Waivable)",
+        lounge: "None",
         bestFor: "General & Overseas spend"
     },
     { 
@@ -211,6 +219,7 @@ const comparisonData = [
         base: "0.4 mpd", 
         cap: "S$13,335/year", 
         fee: "S$196.20 (Waivable)",
+        lounge: "None",
         bestFor: "Big electronic purchases"
     },
     { 
@@ -220,6 +229,7 @@ const comparisonData = [
         base: "1.1 mpd", 
         cap: "No cap", 
         fee: "S$178.20 (Waivable)",
+        lounge: "None (Gold gets lounge)",
         bestFor: "Direct miles to KF"
     },
     { 
@@ -229,6 +239,7 @@ const comparisonData = [
         base: "3.33%", 
         cap: "S$2,000 spend tier", 
         fee: "S$196.20 (Waivable)",
+        lounge: "None",
         bestFor: "Stable monthly spend"
     },
     { 
@@ -238,6 +249,7 @@ const comparisonData = [
         base: "1.5%", 
         cap: "S$250/quarter bonus", 
         fee: "Permanent Waiver",
+        lounge: "None",
         bestFor: "Dining & NTUC"
     },
     { 
@@ -247,6 +259,7 @@ const comparisonData = [
         base: "1.6%", 
         cap: "No Cap", 
         fee: "S$196.20 (Waivable)",
+        lounge: "None",
         bestFor: "General spending"
     },
     { 
@@ -256,6 +269,7 @@ const comparisonData = [
         base: "0.3%", 
         cap: "S$125/mo", 
         fee: "S$196.20 (Waivable)",
+        lounge: "None",
         bestFor: "Groceries & Transport"
     },
     { 
@@ -265,6 +279,7 @@ const comparisonData = [
         base: "0.3%", 
         cap: "S$80/mo", 
         fee: "S$196.20 (Waivable)",
+        lounge: "None",
         bestFor: "Dining & Bills"
     },
     { 
@@ -274,6 +289,7 @@ const comparisonData = [
         base: "0.4%", 
         cap: "S$250/quarter", 
         fee: "S$196.20 (Waivable)",
+        lounge: "None",
         bestFor: "Family utilities & petrol"
     },
     { 
@@ -283,6 +299,7 @@ const comparisonData = [
         base: "1.7%", 
         cap: "No Cap", 
         fee: "S$196.20 (Waivable)",
+        lounge: "None",
         bestFor: "Insurance & Grab top-ups"
     },
     { 
@@ -292,6 +309,7 @@ const comparisonData = [
         base: "0.25%", 
         cap: "S$80/mo", 
         fee: "S$196.20 (Waivable)",
+        lounge: "None",
         bestFor: "Motorists & Home cooks"
     }
 ];
@@ -331,6 +349,7 @@ function initComparison() {
                 { label: "Bonus Rate", key: "bonus" },
                 { label: "Base Rate", key: "base" },
                 { label: "Monthly Cap", key: "cap" },
+                { label: "Lounge Access", key: "lounge" },
                 { label: "Annual Fee", key: "fee" },
                 { label: "Best For", key: "bestFor" }
             ];
