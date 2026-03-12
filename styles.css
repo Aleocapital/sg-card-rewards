@@ -45,35 +45,7 @@ body {
     padding: 0 20px;
 }
 
-.optimizer-grid {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 40px;
-}
-
-.main-content {
-    width: 100%;
-    min-width: 0;
-}
-
-.results-container {
-    display: grid;
-    gap: 20px;
-    width: 100%;
-}
-
-.reward-card {
-    background: var(--card-bg);
-    border-radius: var(--radius);
-    padding: 30px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-    display: grid;
-    grid-template-columns: 100px 1fr 150px;
-    gap: 25px;
-    align-items: center;
-    width: 100%;
-}
+/* Header */
 .header {
     height: 70px;
     display: flex;
@@ -132,13 +104,9 @@ body {
     display: flex;
     justify-content: center;
     gap: 15px;
-    flex-wrap: wrap;
-    padding: 0 10px;
 }
 
 .picker-btn {
-    flex: 0 1 auto;
-    min-width: 160px;
     padding: 14px 28px;
     border: 2px solid var(--border);
     background: var(--card-bg);
@@ -150,7 +118,6 @@ body {
     color: var(--text);
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 8px;
     white-space: nowrap;
 }
@@ -777,9 +744,6 @@ body {
         text-align: left;
         padding: 24px;
         position: relative;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
     }
     .card-rank {
         position: absolute;
