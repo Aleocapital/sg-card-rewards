@@ -913,6 +913,23 @@ body {
     }
 }
 
+.mcc-result-item.exclusion {
+    border-left: 4px solid #ef4444;
+    background: rgba(239, 68, 68, 0.02);
+}
+
+.mcc-warning {
+    font-size: 0.75rem;
+    color: #ef4444;
+    font-weight: 700;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+[data-theme="dark"] .mcc-result-item.exclusion {
+    background: rgba(239, 68, 68, 0.05);
+}
+
 /* Footer */
 .footer {
     padding: 60px 0;

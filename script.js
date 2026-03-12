@@ -345,7 +345,14 @@ const mccData = [
     { merchant: "Expedia", mcc: "4722", category: "Travel Agency", card: "DBS Altitude / UOB PRVI", rate: "Up to 10.0 mpd" },
     { merchant: "Klook", mcc: "4722", category: "Travel Agency", card: "DBS WWMC / Citi Rewards", rate: "4.0 mpd" },
     { merchant: "Zalora", mcc: "5651", category: "Online Fashion", card: "Citi Rewards / OCBC Rewards", rate: "4.0 mpd" },
-    { merchant: "Taobao", mcc: "5311", category: "Online Dept Store", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" }
+    { merchant: "Taobao", mcc: "5311", category: "Online Dept Store", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" },
+    // Common Exclusions & Blacklist
+    { merchant: "Insurance (Prudential, AIA, etc.)", mcc: "6300", category: "Insurance", card: "UOB Absolute / CardUp", rate: "1.7% / 1.4 mpd", warning: "Blacklisted by 99% of cards" },
+    { merchant: "Utilities (SP Group)", mcc: "4900", category: "Utilities", card: "UOB One / OCBC 365", rate: "3.33% - 6.0%", warning: "Excluded by most miles cards" },
+    { merchant: "Grab/Revolut Top-ups", mcc: "6540", category: "Stored Value", card: "None (Standard)", rate: "0.0", warning: "Total exclusion on almost all SG cards" },
+    { merchant: "Hospital / Healthcare", mcc: "8062", category: "Medical", card: "StanChart Journey / Amex True", rate: "1.2 mpd / 1.5%", warning: "Commonly excluded category" },
+    { merchant: "School Fees / Education", mcc: "8220", category: "Education", card: "Maybank Visa Infinite", rate: "1.2 mpd", warning: "Highly restricted category" },
+    { merchant: "Tax / IRAS Payments", mcc: "9311", category: "Government", card: "Citi PayAll / CardUp", rate: "1.2 - 1.6 mpd", warning: "No direct rewards; use payment facility" }
 ];
 
 function initMCCLookup() {
@@ -369,10 +376,11 @@ function initMCCLookup() {
 
         if (matches.length > 0) {
             resultsContainer.innerHTML = matches.map(item => `
-                <div class="mcc-result-item">
+                <div class="mcc-result-item ${item.warning ? 'exclusion' : ''}">
                     <div class="mcc-merchant-info">
                         <h4>${item.merchant} <span class="mcc-code-tag">MCC ${item.mcc}</span></h4>
                         <span class="mcc-category">${item.category}</span>
+                        ${item.warning ? `<div class="mcc-warning">⚠️ ${item.warning}</div>` : ''}
                     </div>
                     <div class="mcc-card-rec">
                         <span class="mcc-card-name">${item.card}</span>
