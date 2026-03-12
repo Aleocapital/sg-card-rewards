@@ -743,6 +743,82 @@ body {
     }
 }
 
+/* Partners Section */
+.partners-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.bank-partner-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+.bank-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.bank-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+}
+
+.partner-meta {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.meta-tag {
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.meta-tag.fee { background: #fee2e2; color: #ef4444; }
+.meta-tag.free { background: #dcfce7; color: #10b981; }
+.meta-tag.partners { background: #e0f2fe; color: #0ea5e9; }
+
+.partner-list {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.partner-list li {
+    font-size: 0.85rem;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+}
+
+.partner-list li:last-child { border-bottom: none; }
+
+.bank-pro-tip {
+    font-size: 0.8rem;
+    background: var(--bg);
+    padding: 12px;
+    border-radius: 8px;
+    color: var(--text-muted);
+    border-left: 3px solid var(--secondary);
+}
+
+@media (max-width: 600px) {
+    .partners-container {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Footer */
 .footer {
     padding: 60px 0;
