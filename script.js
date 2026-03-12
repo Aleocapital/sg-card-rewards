@@ -504,16 +504,16 @@ function initCalculator() {
 
 // Tab Switching Logic
 function initTabs() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
+    const featureItems = document.querySelectorAll('.feature-item');
     const tabContents = document.querySelectorAll('.tab-content');
 
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const target = btn.dataset.tab;
+    featureItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const target = item.dataset.tab;
 
-            // Update buttons
-            tabBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            // Update icons
+            featureItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
 
             // Update content
             tabContents.forEach(content => {
@@ -524,7 +524,7 @@ function initTabs() {
             });
 
             // Scroll to top of section
-            window.scrollTo({ top: document.querySelector('.optimizer-section').offsetTop - 100, behavior: 'smooth' });
+            window.scrollTo({ top: document.querySelector('.optimizer-section').offsetTop - 20, behavior: 'smooth' });
         });
     });
 }
