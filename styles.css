@@ -677,9 +677,6 @@ body {
     border-radius: 20px;
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
-    position: sticky;
-    top: 85px; /* Sits below the header */
-    z-index: 1000;
 }
 
 .feature-item {
