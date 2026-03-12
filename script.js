@@ -130,8 +130,123 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
+// Comparison Logic
+const comparisonData = [
+    { 
+        name: "DBS Woman's World Card", 
+        type: "Miles", 
+        bonus: "4 mpd online", 
+        base: "0.4 mpd", 
+        cap: "S$2,000/mo", 
+        fee: "S$196.20 (Waivable)",
+        bestFor: "Online everything"
+    },
+    { 
+        name: "Citi Rewards", 
+        type: "Miles", 
+        bonus: "4 mpd online/retail", 
+        base: "0.4 mpd", 
+        cap: "S$1,000/mo", 
+        fee: "S$196.20 (Waivable)",
+        bestFor: "Shopping & Amaze hack"
+    },
+    { 
+        name: "HSBC Revolution", 
+        type: "Miles", 
+        bonus: "4 mpd online/contactless", 
+        base: "None", 
+        cap: "S$1,000/mo", 
+        fee: "Permanent Waiver",
+        bestFor: "Dining & Groceries"
+    },
+    { 
+        name: "UOB One Card", 
+        type: "Cashback", 
+        bonus: "Up to 10%", 
+        base: "3.33%", 
+        cap: "S$2,000 spend tier", 
+        fee: "S$196.20 (Waivable)",
+        bestFor: "Stable monthly spend"
+    },
+    { 
+        name: "Trust Cashback Card", 
+        type: "Cashback", 
+        bonus: "Up to 15%", 
+        base: "1.5%", 
+        cap: "S$250/quarter bonus", 
+        fee: "Permanent Waiver",
+        bestFor: "Dining & NTUC"
+    },
+    { 
+        name: "Citi Cash Back+", 
+        type: "Cashback", 
+        bonus: "1.6% Unlimited", 
+        base: "1.6%", 
+        cap: "No Cap", 
+        fee: "S$196.20 (Waivable)",
+        bestFor: "General spending"
+    }
+];
+
+function initComparison() {
+    const s1 = document.getElementById('card-select-1');
+    const s2 = document.getElementById('card-select-2');
+    
+    if (!s1 || !s2) return;
+
+    comparisonData.forEach(card => {
+        const opt1 = document.createElement('option');
+        opt1.value = card.name;
+        opt1.textContent = card.name;
+        s1.appendChild(opt1);
+
+        const opt2 = document.createElement('option');
+        opt2.value = card.name;
+        opt2.textContent = card.name;
+        s2.appendChild(opt2);
+    });
+
+    const updateCompare = () => {
+        const c1 = comparisonData.find(c => c.name === s1.value);
+        const c2 = comparisonData.find(c => c.name === s2.value);
+        const table = document.getElementById('compare-table-container');
+        const placeholder = document.getElementById('compare-placeholder');
+
+        if (c1 && c2) {
+            table.classList.remove('hidden');
+            placeholder.classList.add('hidden');
+            document.getElementById('compare-name-1').textContent = c1.name;
+            document.getElementById('compare-name-2').textContent = c2.name;
+
+            const features = [
+                { label: "Reward Type", key: "type" },
+                { label: "Bonus Rate", key: "bonus" },
+                { label: "Base Rate", key: "base" },
+                { label: "Monthly Cap", key: "cap" },
+                { label: "Annual Fee", key: "fee" },
+                { label: "Best For", key: "bestFor" }
+            ];
+
+            document.getElementById('compare-body').innerHTML = features.map(f => `
+                <tr>
+                    <td class="feature-name">${f.label}</td>
+                    <td>${c1[f.key]}</td>
+                    <td>${c2[f.key]}</td>
+                </tr>
+            `).join('');
+        } else {
+            table.classList.add('hidden');
+            placeholder.classList.remove('hidden');
+        }
+    };
+
+    s1.addEventListener('change', updateCompare);
+    s2.addEventListener('change', updateCompare);
+}
+
 // Initial Render
 renderCards();
+initComparison();
 
 // Animation CSS
 const style = document.createElement('style');

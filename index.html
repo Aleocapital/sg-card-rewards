@@ -35,6 +35,8 @@
         <div class="container">
             <div class="logo">💳 SG Card Rewards</div>
             <div class="theme-toggle-container">
+                <a href="#pro-tips">Strategy</a>
+                <a href="#compare" class="nav-link">Compare</a>
                 <button id="theme-toggle" class="btn-icon">🌙</button>
             </div>
         </div>
@@ -73,6 +75,46 @@
                         <!-- Cards will be injected here by JavaScript -->
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="compare" class="section compare-section alt-bg">
+        <div class="container">
+            <h2>⚖️ Compare Credit Cards</h2>
+            <p class="section-intro">Select two cards to compare their rewards and features side-by-side.</p>
+            
+            <div class="compare-controls">
+                <div class="compare-select-wrapper">
+                    <select id="card-select-1" class="compare-select">
+                        <option value="">Select First Card</option>
+                    </select>
+                </div>
+                <div class="compare-vs">VS</div>
+                <div class="compare-select-wrapper">
+                    <select id="card-select-2" class="compare-select">
+                        <option value="">Select Second Card</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="compare-table-container" class="compare-table-container hidden">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th id="compare-name-1">Card 1</th>
+                            <th id="compare-name-2">Card 2</th>
+                        </tr>
+                    </thead>
+                    <tbody id="compare-body">
+                        <!-- Comparison rows will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="compare-placeholder" class="compare-placeholder">
+                <p>Choose two cards above to see the comparison</p>
             </div>
         </div>
     </section>
