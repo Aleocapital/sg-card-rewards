@@ -561,13 +561,102 @@ function initTravelCalc() {
     updateTravel();
 }
 
-// Initial Render
-renderCards();
-initComparison();
-initMCCLookup();
-initCalculator();
-initTabs();
-initTravelCalc();
+// PapaParse local fallback (simulated minimal CSV parser for simple CSV)
+function parseCSV(text) {
+    const lines = text.split('\n').filter(line => line.trim() !== '');
+    const headers = lines[0].split(',');
+    return lines.slice(1).map(line => {
+        const values = line.split(',');
+        const obj = {};
+        headers.forEach((header, i) => {
+            obj[header.trim()] = values[i] ? values[i].trim() : '';
+        });
+        return obj;
+    });
+}
+
+async function loadDataFromCSV() {
+    try {
+        const response = await fetch('cards.csv');
+        const csvText = await response.text();
+        const rawData = parseCSV(csvText);
+        
+        // Rebuild cardData structure
+        const newCardData = { miles: {}, cashback: {} };
+        const newMccData = [];
+        const newComparisonData = [];
+
+        rawData.forEach(row => {
+            const type = row.Type; // miles or cashback
+            const cat = row.Category;
+            
+            // Populate Optimizer Data
+            if (type === 'miles' || type === 'cashback') {
+                if (!newCardData[type][cat]) newCardData[type][cat] = [];
+                newCardData[type][cat].push({
+                    name: row.Name,
+                    reward: row.Reward,
+                    label: row.Unit,
+                    desc: row.Desc,
+                    tag: row.Tag
+                });
+            }
+
+            // Populate MCC Data
+            if (row.MCC) {
+                newMccData.push({
+                    merchant: row.Name,
+                    mcc: row.MCC,
+                    category: row.Best_For,
+                    card: row.Name, // Simplifying for CSV demo
+                    rate: row.Reward + ' ' + row.Unit,
+                    warning: row.Warning
+                });
+            }
+
+            // Populate Comparison Data (Unique names only)
+            if (!newComparisonData.find(c => c.name === row.Name) && row.Annual_Fee) {
+                newComparisonData.push({
+                    name: row.Name,
+                    type: type.charAt(0).toUpperCase() + type.slice(1),
+                    bonus: row.Reward + ' ' + row.Unit,
+                    base: "See details",
+                    cap: row.Monthly_Cap,
+                    lounge: row.Lounge_Access,
+                    fee: row.Annual_Fee,
+                    bestFor: row.Best_For
+                });
+            }
+        });
+
+        // Update global variables
+        window.cardData = newCardData;
+        window.mccData = newMccData;
+        window.comparisonData = newComparisonData;
+
+        // Re-initialize UI
+        renderCards();
+        initComparison();
+        initMCCLookup();
+        initCalculator();
+        initTabs();
+        initTravelCalc();
+
+    } catch (error) {
+        console.error("Error loading CSV:", error);
+    }
+}
+
+// Global data holders
+window.cardData = {};
+window.mccData = [];
+window.comparisonData = [];
+
+// Entry point
+document.addEventListener('DOMContentLoaded', () => {
+    loadDataFromCSV();
+});
+
 
 // Animation CSS
 const style = document.createElement('style');
