@@ -330,16 +330,15 @@ function parseCSV(text) {
 
 async function loadDataFromCSV() {
     try {
-        const response = await fetch('cards.csv');
-        if (!response.ok) throw new Error('CSV not found');
-        const csvText = await response.text();
-        const rawData = parseCSV(csvText);
+        // Load Cards Data
+        const cardResponse = await fetch('cards.csv');
+        const cardCsvText = await cardResponse.text();
+        const cardRawData = parseCSV(cardCsvText);
         
         const newCardData = { miles: {}, cashback: {} };
-        const newMccData = [];
         const newComparisonData = [];
 
-        rawData.forEach(row => {
+        cardRawData.forEach(row => {
             const type = row.Type;
             const cat = row.Category;
             
@@ -351,17 +350,6 @@ async function loadDataFromCSV() {
                     label: row.Unit,
                     desc: row.Desc,
                     tag: row.Tag
-                });
-            }
-
-            if (row.MCC) {
-                newMccData.push({
-                    merchant: row.Name,
-                    mcc: row.MCC,
-                    category: row.Best_For,
-                    card: row.Name,
-                    rate: row.Reward + ' ' + row.Unit,
-                    warning: row.Warning
                 });
             }
 
@@ -379,9 +367,23 @@ async function loadDataFromCSV() {
             }
         });
 
+        // Load MCC Data
+        const mccResponse = await fetch('mcc.csv');
+        const mccCsvText = await mccResponse.text();
+        const mccRawData = parseCSV(mccCsvText);
+        const newMccData = mccRawData.map(row => ({
+            merchant: row.Merchant,
+            mcc: row.MCC,
+            category: row.Category,
+            card: row.Recommended_Card,
+            rate: row.Rate,
+            warning: row.Warning
+        }));
+
         window.cardData = newCardData;
         window.mccData = newMccData;
         window.comparisonData = newComparisonData;
+
     } catch (error) {
         console.warn("CSV load failed, using static fallback:", error);
         window.cardData = cardData_static;

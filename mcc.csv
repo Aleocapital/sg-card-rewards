@@ -1,0 +1,21 @@
+Merchant,MCC,Category,Recommended_Card,Rate,Warning
+Shopee,5311,Online Dept Store,Citi Rewards / DBS WWMC,4.0 mpd,
+Lazada,5311,Online Dept Store,Citi Rewards / DBS WWMC,4.0 mpd,
+Amazon SG,5311,Online Dept Store,Citi Rewards / DBS WWMC,4.0 mpd,
+GrabFood,5812,Dining/Delivery,HSBC Revolution / UOB Lady's,4.0 - 6.0 mpd,
+GrabRides,4121,Transport,UOB Lady's / Amex KF,3.1 - 6.0 mpd,
+FairPrice / NTUC,5411,Grocery,UOB One / Trust / Maybank F&F,Up to 15% cashback,
+Cold Storage,5411,Grocery,DBS yuu Card,Up to 18% rebate,
+Giant,5411,Grocery,DBS yuu Card,Up to 18% rebate,
+7-Eleven (Standalone),5499,Convenience Store,DBS yuu Card,Up to 18% rebate,
+Starbucks,5814,Fast Food,UOB Lady's / HSBC Rev,4.0 - 6.0 mpd,
+McDonald's,5814,Fast Food,UOB Lady's / HSBC Rev,4.0 - 6.0 mpd,
+Insurance (Prudential/AIA),6300,Insurance,UOB Absolute / CardUp,1.7% / 1.4 mpd,Blacklisted by 99% of cards
+Utilities (SP Group),4900,Utilities,UOB One / OCBC 365,3.33% - 6.0%,Excluded by most miles cards
+Grab/Revolut Top-ups,6540,Stored Value,None,0.0,Total exclusion on almost all SG cards
+Hospital / Healthcare,8062,Medical,StanChart Journey / Amex True,1.2 mpd / 1.5%,Commonly excluded category
+School Fees / Education,8220,Education,Maybank Visa Infinite,1.2 mpd,Highly restricted category
+Tax / IRAS Payments,9311,Government,Citi PayAll / CardUp,1.2 - 1.6 mpd,No direct rewards; use payment facility
+Charity / Donations,8398,Social Services,None,0.0,Standard exclusion category
+Town Council,9399,Government,None,0.0,Standard exclusion category
+LTA / ERP / Parking,9399,Government,None,0.0,Standard exclusion category
