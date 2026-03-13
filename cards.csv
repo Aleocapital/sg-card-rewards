@@ -7,7 +7,55 @@ UOB Preferred Platinum Visa,miles,dining,4.0,mpd,Contactless (Apple/Google Pay) 
 Citi PremierMiles,miles,travel,1.2,mpd,Wide transfer partner network.,Flexible Partners,S$196.20 (Waivable),2x Priority Pass,No cap,Lounge access & partners,7011,
 UOB One Card,cashback,dining,10.0,%,Tiered cashback. Maximize at S$2000 spend/month.,Consistent,S$196.20 (Waivable),None,S$2000 spend tier,Stable monthly spend,5812,
 Trust Cashback Card,cashback,dining,15.0,%,Quarterly bonus. High effective rate for dining.,Market Best,Permanent Waiver,None,S$250/quarter bonus,Dining & NTUC,5411,
-Grab Food,miles,mcc,4.0 - 6.0,mpd,Food delivery via app.,,,None,,Dining/Delivery,5812,
-Insurance (Prudential/AIA),miles,mcc,1.7,%,Blacklisted by 99% of cards.,,,None,,Insurance,6300,Blacklisted by 99% of cards
-Utilities (SP Group),cashback,mcc,6.0,%,Excluded by most miles cards.,,,None,,Utilities,4900,Excluded by most miles cards
-Grab/Revolut Top-ups,miles,mcc,0.0,,Total exclusion on almost all SG cards.,,,None,,Stored Value,6540,Total exclusion on almost all SG cards
+Shopee,mcc,mcc,4.0,mpd,Major online marketplace.,,None,,Online Dept Store,5311,
+Lazada,mcc,mcc,4.0,mpd,Online shopping & delivery.,,None,,Online Dept Store,5311,
+Amazon SG,mcc,mcc,4.0,mpd,Global online retailer.,,None,,Online Dept Store,5311,
+Qoo10,mcc,mcc,4.0,mpd,Online marketplace.,,None,,Apparel & Accessories,5691,
+GrabFood,mcc,mcc,4.0 - 6.0,mpd,Food delivery via app.,,None,,Dining/Delivery,5812,
+GrabRides,mcc,mcc,3.1 - 6.0,mpd,Ride-hailing service.,,None,,Transport,4121,
+Gojek,mcc,mcc,4.0,mpd,Ride-hailing service.,,None,,Transport,4121,
+ComfortDelGro,mcc,mcc,4.0,mpd,Taxi service app.,,None,,Transport,4121,
+Foodpanda,mcc,mcc,4.0 - 6.0,mpd,Food delivery service.,,None,,Dining/Delivery,5812,
+Deliveroo,mcc,mcc,4.0 - 6.0,mpd,Food delivery service.,,None,,Dining/Delivery,5812,
+FairPrice / NTUC,mcc,mcc,Up to 15%,%,Main supermarket chain.,,None,,Grocery,5411,
+Cold Storage,mcc,mcc,4.0,mpd,Premium supermarket chain.,,None,,Grocery,5411,
+Don Don Donki,mcc,mcc,4.0,mpd,Japanese supermarket.,,None,,Grocery,5411,
+Sheng Siong,mcc,mcc,5.0 - 8.0,%,Budget-friendly supermarket.,,None,,Grocery,5411,
+Giant,mcc,mcc,Up to 18%,%,Supermarket & Hypermarket.,,None,,Grocery,5411,
+Uniqlo,mcc,mcc,4.0,mpd,Fashion retailer.,,None,,Clothing,5651,
+Zara,mcc,mcc,4.0,mpd,Fashion retailer.,,None,,Clothing,5651,
+Starbucks,mcc,mcc,4.0 - 6.0,mpd,Coffee chain.,,None,,Fast Food,5814,
+McDonald's,mcc,mcc,4.0 - 6.0,mpd,Fast food chain.,,None,,Fast Food,5814,
+KFC,mcc,mcc,4.0 - 6.0,mpd,Fast food chain.,,None,,Fast Food,5814,
+IKEA,mcc,mcc,4.0,mpd,Home furnishings.,,None,,Furniture,5712,
+Courts,mcc,mcc,4.0,mpd,Electronics & furniture.,,None,,Electronics,5732,
+Harvey Norman,mcc,mcc,4.0,mpd,Electronics & furniture.,,None,,Electronics,5732,
+Best Denki,mcc,mcc,4.0,mpd,Electronics retailer.,,None,,Electronics,5732,
+Shell,mcc,mcc,Up to 21%,%,Petrol station.,,None,,Petrol,5541,
+Esso,mcc,mcc,Up to 21%,%,Petrol station.,,None,,Petrol,5541,
+Caltex,mcc,mcc,Up to 18%,%,Petrol station.,,None,,Petrol,5541,
+SPC,mcc,mcc,Up to 20%,%,Petrol station.,,None,,Petrol,5541,
+Netflix,mcc,mcc,4.0 - 6.0,mpd,Streaming service.,,None,,Entertainment,4899,
+Spotify,mcc,mcc,4.0 - 6.0,mpd,Streaming service.,,None,,Entertainment,4899,
+Disney+,mcc,mcc,4.0 - 6.0,mpd,Streaming service.,,None,,Entertainment,4899,
+Singtel,mcc,mcc,Up to 6.0,%,Telecom bills.,,None,,Utilities,4814,
+Starhub,mcc,mcc,Up to 6.0,%,Telecom bills.,,None,,Utilities,4814,
+M1,mcc,mcc,Up to 6.0,%,Telecom bills.,,None,,Utilities,4814,
+Agoda,mcc,mcc,Up to 10.0,mpd,Hotel bookings.,,None,,Hotel/Travel,7011,
+Expedia,mcc,mcc,Up to 10.0,mpd,Travel agency.,,None,,Travel Agency,4722,
+Klook,mcc,mcc,4.0,mpd,Travel & experiences.,,None,,Travel Agency,4722,
+Trip.com,mcc,mcc,Up to 6.0,mpd,Travel booking site.,,None,,Travel Agency,4722,
+Zalora,mcc,mcc,4.0,mpd,Online fashion retailer.,,None,,Clothing,5651,
+Taobao,mcc,mcc,4.0,mpd,Online marketplace.,,None,,Direct Marketing,5964,
+Insurance (Prudential/AIA),mcc,mcc,1.7,%,Insurance premiums.,,None,,Insurance,6300,Blacklisted by 99% of cards
+Utilities (SP Group),mcc,mcc,Up to 6.0,%,Utilities bills.,,None,,Utilities,4900,Excluded by most miles cards
+Grab/Revolut Top-ups,mcc,mcc,0.0,,Wallet top-ups.,,None,,Stored Value,6540,Total exclusion on almost all SG cards
+Hospital / Healthcare,mcc,mcc,1.2,mpd,Hospital medical bills.,,None,,Medical,8062,Commonly excluded category
+School Fees / Education,mcc,mcc,1.2,mpd,Education/Tuition fees.,,None,,Education,8220,Highly restricted category
+Tax / IRAS Payments,mcc,mcc,1.2 - 1.6,mpd,Government tax payments.,,None,,Government,9311,No direct rewards; use payment facility
+Charity / Donations,mcc,mcc,0.0,,Charitable contributions.,,None,,Social Services,8398,Standard exclusion category
+Jubilee Church,mcc,mcc,0.0,,Religious organizations.,,None,,Religious,8661,Standard exclusion category
+Town Council,mcc,mcc,0.0,,Government services.,,None,,Government,9399,Standard exclusion category
+LTA / ERP / Parking,mcc,mcc,0.0,,Government services.,,None,,Government,9399,Standard exclusion category
+Post Office / SingPost,mcc,mcc,0.0,,Postal services.,,None,,Government,9402,Standard exclusion category
+Court Costs / Fines,mcc,mcc,0.0,,Government services.,,None,,Government,9222,Standard exclusion category
