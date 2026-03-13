@@ -89,6 +89,21 @@ body {
     letter-spacing: -1px;
 }
 
+.hero-banner-container {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    border: 1px solid var(--border);
+}
+
+.hero-banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .subtitle {
     font-size: 1.25rem;
     color: var(--text-muted);

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0f172a"/>
+  
+  <!-- Subtle Grid/Pattern -->
+  <g opacity="0.1">
+    <path d="M0 100h1200M0 200h1200M0 300h1200M0 400h1200M0 500h1200" stroke="#f8fafc" stroke-width="1"/>
+    <path d="M100 0v630M200 0v630M300 0v630M400 0v630M500 0v630M600 0v630M700 0v630M800 0v630M900 0v630M1000 0v630M1100 0v630" stroke="#f8fafc" stroke-width="1"/>
+  </g>
+
+  <!-- Abstract Credit Cards -->
+  <g transform="translate(700, 150) rotate(15)">
+    <!-- Card 1 (Blue) -->
+    <rect x="0" y="0" width="350" height="220" rx="20" fill="#3b82f6" opacity="0.9"/>
+    <rect x="30" y="40" width="60" height="45" rx="5" fill="#fbbf24" opacity="0.8"/> <!-- Chip -->
+    <rect x="30" y="160" width="100" height="10" rx="5" fill="#ffffff" opacity="0.3"/>
+  </g>
+  
+  <g transform="translate(750, 220) rotate(-5)">
+    <!-- Card 2 (Amber) -->
+    <rect x="0" y="0" width="350" height="220" rx="20" fill="#f59e0b" opacity="0.9"/>
+    <rect x="30" y="40" width="60" height="45" rx="5" fill="#ffffff" opacity="0.5"/> <!-- Chip -->
+    <circle cx="300" cy="180" r="25" fill="#ef4444" opacity="0.8"/>
+    <circle cx="270" cy="180" r="25" fill="#ffffff" opacity="0.4"/>
+  </g>
+
+  <!-- Main Text Content -->
+  <text x="80" y="280" font-family="Arial, sans-serif" font-weight="800" font-size="82" fill="#ffffff" letter-spacing="-2">SG CARD</text>
+  <text x="80" y="370" font-family="Arial, sans-serif" font-weight="800" font-size="82" fill="#f59e0b" letter-spacing="-2">REWARDS</text>
+  
+  <text x="85" y="440" font-family="Arial, sans-serif" font-weight="600" font-size="28" fill="#94a3b8">The definitive credit card strategy for Singapore.</text>
+  
+  <!-- Pill Tags -->
+  <g transform="translate(85, 480)">
+    <rect width="130" height="40" rx="20" fill="#3b82f6"/>
+    <text x="65" y="27" font-family="Arial, sans-serif" font-weight="700" font-size="16" fill="#ffffff" text-anchor="middle">4.0 MPD</text>
+    
+    <rect x="150" width="150" height="40" rx="20" fill="#10b981"/>
+    <text x="225" y="27" font-family="Arial, sans-serif" font-weight="700" font-size="16" fill="#ffffff" text-anchor="middle">MAX CASHBACK</text>
+    
+    <rect x="320" width="140" height="40" rx="20" fill="#6366f1"/>
+    <text x="390" y="27" font-family="Arial, sans-serif" font-weight="700" font-size="16" fill="#ffffff" text-anchor="middle">MCC LOOKUP</text>
+  </g>
+
+  <!-- Branding -->
+  <rect x="80" y="100" width="60" height="60" rx="15" fill="#f59e0b"/>
+  <text x="110" y="142" font-family="Arial, sans-serif" font-weight="800" font-size="32" fill="#ffffff" text-anchor="middle">S</text>
+</svg>
