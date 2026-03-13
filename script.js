@@ -1,4 +1,4 @@
-const cardData = {
+const cardData_static = {
     miles: {
         online: [
             { name: "DBS Woman's World Card", reward: "4.0", label: "mpd", desc: "Best for all online spend. Capped at S$2,000/month.", tag: "Top Pick" },
@@ -6,14 +6,14 @@ const cardData = {
             { name: "HSBC Revolution", reward: "4.0", label: "mpd", desc: "Online & contactless. No annual fee. Capped at S$1,000/month.", tag: "Zero Fee" }
         ],
         dining: [
+            { name: "DBS yuu Card", reward: "10.0", label: "mpd", desc: "18% rebate or 10 mpd at yuu merchants. Min spend S$600.", tag: "Highest Yield" },
             { name: "HSBC Revolution", reward: "4.0", label: "mpd", desc: "Contactless payment only. Capped at S$1,000/month.", tag: "Most Convenient" },
-            { name: "UOB Lady's Card", reward: "6.0", label: "mpd", desc: "Choose 'Dining' as category. Capped at S$1,000/month.", tag: "Highest Yield" },
-            { name: "UOB Preferred Platinum Visa", reward: "4.0", label: "mpd", desc: "Contactless (Apple/Google Pay) capped at S$1,110/month.", tag: "Daily Driver" }
+            { name: "UOB Lady's Card", reward: "6.0", label: "mpd", desc: "Choose 'Dining' as category. Capped at S$1,000/month.", tag: "Highest Yield" }
         ],
         grocery: [
+            { name: "DBS yuu Card", reward: "10.0", label: "mpd", desc: "10 mpd at Cold Storage/Giant/Guardian. Min spend S$600.", tag: "Miles King" },
             { name: "HSBC Revolution", reward: "4.0", label: "mpd", desc: "Contactless payment only. Capped at S$1,000/month.", tag: "Best for Supermarkets" },
-            { name: "Citi Rewards", reward: "4.0", label: "mpd", desc: "Only for online groceries (RedMart/Pandamart).", tag: "Online Only" },
-            { name: "UOB Lady's Card", reward: "6.0", label: "mpd", desc: "Choose 'Family' as category. Capped at S$1,000/month.", tag: "Highest Yield" }
+            { name: "Citi Rewards", reward: "4.0", label: "mpd", desc: "Only for online groceries (RedMart/Pandamart).", tag: "Online Only" }
         ],
         travel: [
             { name: "UOB PRVI Miles", reward: "6.0", label: "mpd", desc: "Agoda, Expedia, and UOB Travel bookings. No cap.", tag: "Unlimited" },
@@ -43,14 +43,14 @@ const cardData = {
             { name: "OCBC 365", reward: "3.0", label: "%", desc: "Online travel & recurring bills. Min spend S$800.", tag: "Utility" }
         ],
         dining: [
+            { name: "DBS yuu Card", reward: "18.0", label: "%", desc: "Highest rebate for BreadTalk/Foodpanda/Toast Box. Min spend S$600.", tag: "Market Best" },
             { name: "Trust Cashback Card", reward: "15.0", label: "%", desc: "Quarterly bonus. High effective rate for dining.", tag: "Market Best" },
-            { name: "Citi Cash Back Card", reward: "8.0", label: "%", desc: "Dining, Petrol, Groceries. Min spend S$800.", tag: "All-rounder" },
-            { name: "UOB One", reward: "10.0", label: "%", desc: "Tiered cashback. Maximize at S$2,000 spend/month.", tag: "Consistent" }
+            { name: "Citi Cash Back Card", reward: "8.0", label: "%", desc: "Dining, Petrol, Groceries. Min spend S$800.", tag: "All-rounder" }
         ],
         grocery: [
+            { name: "DBS yuu Card", reward: "18.0", label: "%", desc: "18% rebate at Cold Storage/Giant/Guardian. Min spend S$600.", tag: "High Yield" },
             { name: "Maybank Family & Friends", reward: "8.0", label: "%", desc: "Choose your categories. Min spend S$800.", tag: "Best for Families" },
-            { name: "Citi Cash Back Card", reward: "8.0", label: "%", desc: "Requires min spend of S$800.", tag: "Reliable" },
-            { name: "POSB Everyday", reward: "5.0", label: "%", desc: "Sheng Siong and Fairprice (selected). No min spend on some.", tag: "Local Hero" }
+            { name: "Citi Cash Back Card", reward: "8.0", label: "%", desc: "Requires min spend of S$800.", tag: "Reliable" }
         ],
         travel: [
             { name: "UOB One", reward: "10.0", label: "%", desc: "Grab, Shopee, and Dairy Farm. High yield with min spend.", tag: "Complex but High" },
@@ -75,12 +75,37 @@ const cardData = {
     }
 };
 
+const mccData_static = [
+    { merchant: "Shopee", mcc: "5311", category: "Online Dept Store", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" },
+    { merchant: "Lazada", mcc: "5311", category: "Online Dept Store", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" },
+    { merchant: "Amazon SG", mcc: "5311", category: "Online Dept Store", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" },
+    { merchant: "GrabFood", mcc: "5812", category: "Dining/Delivery", card: "HSBC Revolution / UOB Lady's", rate: "4.0 - 6.0 mpd" },
+    { merchant: "GrabRides", mcc: "4121", category: "Transport", card: "UOB Lady's / Amex KF", rate: "3.1 - 6.0 mpd" },
+    { merchant: "FairPrice / NTUC", mcc: "5411", category: "Grocery", card: "UOB One / Trust / Maybank F&F", rate: "Up to 15% cashback" },
+    { merchant: "Cold Storage", mcc: "5411", category: "Grocery", card: "DBS yuu Card", rate: "Up to 18% rebate" },
+    { merchant: "Giant", mcc: "5411", category: "Grocery", card: "DBS yuu Card", rate: "Up to 18% rebate" },
+    { merchant: "7-Eleven (Standalone)", mcc: "5499", category: "Convenience Store", card: "DBS yuu Card", rate: "Up to 18% rebate" },
+    { merchant: "Starbucks", mcc: "5814", category: "Fast Food", card: "UOB Lady's / HSBC Rev", rate: "4.0 - 6.0 mpd" },
+    { merchant: "McDonald's", mcc: "5814", category: "Fast Food", card: "UOB Lady's / HSBC Rev", rate: "4.0 - 6.0 mpd" },
+    { merchant: "Insurance (Prudential/AIA)", mcc: "6300", category: "Insurance", card: "UOB Absolute / CardUp", rate: "1.7% / 1.4 mpd", warning: "Blacklisted by 99% of cards" },
+    { merchant: "Utilities (SP Group)", mcc: "4900", category: "Utilities", card: "UOB One / OCBC 365", rate: "3.33% - 6.0%", warning: "Excluded by most miles cards" },
+    { merchant: "Grab/Revolut Top-ups", mcc: "6540", category: "Stored Value", card: "None", rate: "0.0", warning: "Total exclusion on almost all SG cards" }
+];
+
+const comparisonData_static = [
+    { name: "DBS Woman's World Card", type: "Miles", bonus: "4 mpd online", base: "0.4 mpd", cap: "S$2,000/mo", lounge: "None", fee: "S$196.20 (Waivable)", bestFor: "Online everything" },
+    { name: "Citi Rewards", type: "Miles", bonus: "4 mpd online/retail", base: "0.4 mpd", cap: "S$1,000/mo", lounge: "None", fee: "S$196.20 (Waivable)", bestFor: "Shopping & Amaze hack" },
+    { name: "HSBC Revolution", type: "Miles", bonus: "4 mpd online/contactless", base: "None", cap: "S$1,000/mo", lounge: "None", fee: "Permanent Waiver", bestFor: "Dining & Groceries" },
+    { name: "DBS yuu Card", type: "Miles/Cashback", bonus: "10 mpd / 18%", base: "0.14 mpd / 0.25%", cap: "S$150/mo rebate", lounge: "None", fee: "S$196.20 (Waivable)", bestFor: "yuu Merchants" }
+];
+
 let currentType = 'miles';
 let currentCategory = 'online';
 
 function renderCards() {
     const container = document.getElementById('results-container');
-    const data = cardData[currentType][currentCategory];
+    if (!container) return;
+    const data = cardData[currentType][currentCategory] || [];
     
     container.innerHTML = data.map((card, index) => `
         <div class="reward-card" style="animation: fadeInUp 0.4s ease forwards ${index * 0.1}s; opacity: 0;">
@@ -98,263 +123,6 @@ function renderCards() {
     `).join('');
 }
 
-// Event Listeners
-document.querySelectorAll('.picker-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        document.querySelector('.picker-btn.active').classList.remove('active');
-        btn.classList.add('active');
-        currentType = btn.dataset.type;
-        renderCards();
-    });
-});
-
-document.querySelectorAll('.category-item').forEach(item => {
-    item.addEventListener('click', (e) => {
-        document.querySelector('.category-item.active').classList.remove('active');
-        item.classList.add('active');
-        currentCategory = item.dataset.category;
-        renderCards();
-    });
-});
-
-// Theme Toggle
-const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
-    const body = document.body;
-    if (body.hasAttribute('data-theme')) {
-        body.removeAttribute('data-theme');
-        themeToggle.textContent = '🌙';
-    } else {
-        body.setAttribute('data-theme', 'dark');
-        themeToggle.textContent = '☀️';
-    }
-});
-
-// Comparison Logic
-const comparisonData = [
-    { 
-        name: "DBS Woman's World Card", 
-        type: "Miles", 
-        bonus: "4 mpd online", 
-        base: "0.4 mpd", 
-        cap: "S$2,000/mo", 
-        fee: "S$196.20 (Waivable)",
-        lounge: "None",
-        bestFor: "Online everything"
-    },
-    { 
-        name: "Citi Rewards", 
-        type: "Miles", 
-        bonus: "4 mpd online/retail", 
-        base: "0.4 mpd", 
-        cap: "S$1,000/mo", 
-        fee: "S$196.20 (Waivable)",
-        lounge: "None",
-        bestFor: "Shopping & Amaze hack"
-    },
-    { 
-        name: "HSBC Revolution", 
-        type: "Miles", 
-        bonus: "4 mpd online/contactless", 
-        base: "None", 
-        cap: "S$1,000/mo", 
-        fee: "Permanent Waiver",
-        lounge: "None",
-        bestFor: "Dining & Groceries"
-    },
-    { 
-        name: "UOB Lady's Card", 
-        type: "Miles", 
-        bonus: "Up to 6 mpd", 
-        base: "0.4 mpd", 
-        cap: "S$1,000/mo", 
-        fee: "S$196.20 (Waivable)",
-        lounge: "None",
-        bestFor: "Customizable categories"
-    },
-    { 
-        name: "UOB Preferred Platinum Visa", 
-        type: "Miles", 
-        bonus: "4 mpd contactless", 
-        base: "0.4 mpd", 
-        cap: "S$1,110/mo", 
-        fee: "S$196.20 (Waivable)",
-        lounge: "None",
-        bestFor: "Daily Apple/Google Pay"
-    },
-    { 
-        name: "DBS Altitude", 
-        type: "Miles", 
-        bonus: "Up to 10 mpd (travel)", 
-        base: "1.2 mpd", 
-        cap: "No cap (standard categories)", 
-        fee: "S$196.20 (Waivable)",
-        lounge: "2x Priority Pass (Visa only)",
-        bestFor: "Evergreen miles"
-    },
-    { 
-        name: "Citi PremierMiles", 
-        type: "Miles", 
-        bonus: "Up to 10 mpd (travel)", 
-        base: "1.2 mpd", 
-        cap: "No cap", 
-        fee: "S$196.20 (Waivable)",
-        lounge: "2x Priority Pass",
-        bestFor: "Lounge access & partners"
-    },
-    { 
-        name: "UOB PRVI Miles", 
-        type: "Miles", 
-        bonus: "2.4 mpd (FCY)", 
-        base: "1.4 mpd", 
-        cap: "No cap", 
-        fee: "S$259.20 (Waivable)",
-        lounge: "None",
-        bestFor: "General & Overseas spend"
-    },
-    { 
-        name: "OCBC Titanium Rewards", 
-        type: "Miles", 
-        bonus: "4 mpd (shopping)", 
-        base: "0.4 mpd", 
-        cap: "S$13,335/year", 
-        fee: "S$196.20 (Waivable)",
-        lounge: "None",
-        bestFor: "Big electronic purchases"
-    },
-    { 
-        name: "Amex KrisFlyer", 
-        type: "Miles", 
-        bonus: "Up to 3.1 mpd (Grab)", 
-        base: "1.1 mpd", 
-        cap: "No cap", 
-        fee: "S$178.20 (Waivable)",
-        lounge: "None (Gold gets lounge)",
-        bestFor: "Direct miles to KF"
-    },
-    { 
-        name: "UOB One Card", 
-        type: "Cashback", 
-        bonus: "Up to 10%", 
-        base: "3.33%", 
-        cap: "S$2,000 spend tier", 
-        fee: "S$196.20 (Waivable)",
-        lounge: "None",
-        bestFor: "Stable monthly spend"
-    },
-    { 
-        name: "Trust Cashback Card", 
-        type: "Cashback", 
-        bonus: "Up to 15%", 
-        base: "1.5%", 
-        cap: "S$250/quarter bonus", 
-        fee: "Permanent Waiver",
-        lounge: "None",
-        bestFor: "Dining & NTUC"
-    },
-    { 
-        name: "Citi Cash Back+", 
-        type: "Cashback", 
-        bonus: "1.6% Unlimited", 
-        base: "1.6%", 
-        cap: "No Cap", 
-        fee: "S$196.20 (Waivable)",
-        lounge: "None",
-        bestFor: "General spending"
-    },
-    { 
-        name: "Maybank Family & Friends", 
-        type: "Cashback", 
-        bonus: "8%", 
-        base: "0.3%", 
-        cap: "S$125/mo", 
-        fee: "S$196.20 (Waivable)",
-        lounge: "None",
-        bestFor: "Groceries & Transport"
-    },
-    { 
-        name: "OCBC 365", 
-        type: "Cashback", 
-        bonus: "6% (dining)", 
-        base: "0.3%", 
-        cap: "S$80/mo", 
-        fee: "S$196.20 (Waivable)",
-        lounge: "None",
-        bestFor: "Dining & Bills"
-    },
-    { 
-        name: "HSBC Visa Platinum", 
-        type: "Cashback", 
-        bonus: "5%", 
-        base: "0.4%", 
-        cap: "S$250/quarter", 
-        fee: "S$196.20 (Waivable)",
-        lounge: "None",
-        bestFor: "Family utilities & petrol"
-    },
-    { 
-        name: "UOB Absolute Cashback", 
-        type: "Cashback", 
-        bonus: "1.7% Unlimited", 
-        base: "1.7%", 
-        cap: "No Cap", 
-        fee: "S$196.20 (Waivable)",
-        lounge: "None",
-        bestFor: "Insurance & Grab top-ups"
-    },
-    { 
-        name: "Citi Cash Back Card", 
-        type: "Cashback", 
-        bonus: "8% (Grocery/Petrol)", 
-        base: "0.25%", 
-        cap: "S$80/mo", 
-        fee: "S$196.20 (Waivable)",
-        lounge: "None",
-        bestFor: "Motorists & Home cooks"
-    }
-];
-
-// MCC Data
-const mccData = [
-    { merchant: "Shopee", mcc: "5311", category: "Online Dept Store", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" },
-    { merchant: "Lazada", mcc: "5311", category: "Online Dept Store", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" },
-    { merchant: "Amazon SG", mcc: "5311", category: "Online Dept Store", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" },
-    { merchant: "Grab Food", mcc: "5812", category: "Dining/Delivery", card: "HSBC Revolution / UOB Lady's", rate: "4.0 - 6.0 mpd" },
-    { merchant: "Grab Rides", mcc: "4121", category: "Transport", card: "UOB Lady's / Amex KF", rate: "3.1 - 6.0 mpd" },
-    { merchant: "Foodpanda", mcc: "5812", category: "Dining/Delivery", card: "HSBC Revolution / UOB Lady's", rate: "4.0 - 6.0 mpd" },
-    { merchant: "Deliveroo", mcc: "5812", category: "Dining/Delivery", card: "HSBC Revolution / UOB Lady's", rate: "4.0 - 6.0 mpd" },
-    { merchant: "FairPrice / NTUC", mcc: "5411", category: "Grocery", card: "UOB One / Trust / Maybank F&F", rate: "Up to 15% cashback" },
-    { merchant: "Cold Storage", mcc: "5411", category: "Grocery", card: "UOB One / HSBC Rev", rate: "Up to 10% / 4 mpd" },
-    { merchant: "Don Don Donki", mcc: "5411", category: "Grocery", card: "HSBC Revolution", rate: "4.0 mpd" },
-    { merchant: "RedMart", mcc: "5411", category: "Online Grocery", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" },
-    { merchant: "Uniqlo", mcc: "5651", category: "Clothing", card: "Citi Rewards / OCBC Rewards", rate: "4.0 mpd" },
-    { merchant: "Zara", mcc: "5651", category: "Clothing", card: "Citi Rewards / OCBC Rewards", rate: "4.0 mpd" },
-    { merchant: "Netflix", mcc: "4899", category: "Entertainment", card: "UOB Lady's / HSBC Rev", rate: "4.0 - 6.0 mpd" },
-    { merchant: "Spotify", mcc: "4899", category: "Entertainment", card: "UOB Lady's / HSBC Rev", rate: "4.0 - 6.0 mpd" },
-    { merchant: "Disney+", mcc: "4899", category: "Entertainment", card: "UOB Lady's / HSBC Rev", rate: "4.0 - 6.0 mpd" },
-    { merchant: "Starbucks", mcc: "5814", category: "Fast Food", card: "UOB Lady's / HSBC Rev", rate: "4.0 - 6.0 mpd" },
-    { merchant: "McDonald's", mcc: "5814", category: "Fast Food", card: "UOB Lady's / HSBC Rev", rate: "4.0 - 6.0 mpd" },
-    { merchant: "IKEA", mcc: "5712", category: "Furniture", card: "OCBC Rewards / Citi Rewards", rate: "4.0 mpd" },
-    { merchant: "Courts", mcc: "5732", category: "Electronics", card: "OCBC Rewards / Citi Rewards", rate: "4.0 mpd" },
-    { merchant: "Harvey Norman", mcc: "5732", category: "Electronics", card: "OCBC Rewards / Citi Rewards", rate: "4.0 mpd" },
-    { merchant: "Shell", mcc: "5541", category: "Petrol", card: "Citi Cash Back / UOB One", rate: "Up to 21% savings" },
-    { merchant: "Esso", mcc: "5541", category: "Petrol", card: "DBS Esso / Citi Cash Back", rate: "Up to 21% savings" },
-    { merchant: "Caltex", mcc: "5541", category: "Petrol", card: "OCBC 365 / HSBC Visa Plat", rate: "Up to 18% savings" },
-    { merchant: "KrisShop", mcc: "5309", category: "Duty Free", card: "Amex KF / Citi Rewards", rate: "Up to 4.0 mpd" },
-    { merchant: "Agoda", mcc: "7011", category: "Hotel/Travel", card: "DBS Altitude / UOB PRVI", rate: "Up to 10.0 mpd" },
-    { merchant: "Expedia", mcc: "4722", category: "Travel Agency", card: "DBS Altitude / UOB PRVI", rate: "Up to 10.0 mpd" },
-    { merchant: "Klook", mcc: "4722", category: "Travel Agency", card: "DBS WWMC / Citi Rewards", rate: "4.0 mpd" },
-    { merchant: "Zalora", mcc: "5651", category: "Online Fashion", card: "Citi Rewards / OCBC Rewards", rate: "4.0 mpd" },
-    { merchant: "Taobao", mcc: "5311", category: "Online Dept Store", card: "Citi Rewards / DBS WWMC", rate: "4.0 mpd" },
-    // Common Exclusions & Blacklist
-    { merchant: "Insurance (Prudential, AIA, etc.)", mcc: "6300", category: "Insurance", card: "UOB Absolute / CardUp", rate: "1.7% / 1.4 mpd", warning: "Blacklisted by 99% of cards" },
-    { merchant: "Utilities (SP Group)", mcc: "4900", category: "Utilities", card: "UOB One / OCBC 365", rate: "3.33% - 6.0%", warning: "Excluded by most miles cards" },
-    { merchant: "Grab/Revolut Top-ups", mcc: "6540", category: "Stored Value", card: "None (Standard)", rate: "0.0", warning: "Total exclusion on almost all SG cards" },
-    { merchant: "Hospital / Healthcare", mcc: "8062", category: "Medical", card: "StanChart Journey / Amex True", rate: "1.2 mpd / 1.5%", warning: "Commonly excluded category" },
-    { merchant: "School Fees / Education", mcc: "8220", category: "Education", card: "Maybank Visa Infinite", rate: "1.2 mpd", warning: "Highly restricted category" },
-    { merchant: "Tax / IRAS Payments", mcc: "9311", category: "Government", card: "Citi PayAll / CardUp", rate: "1.2 - 1.6 mpd", warning: "No direct rewards; use payment facility" }
-];
-
 function initMCCLookup() {
     const searchInput = document.getElementById('mcc-search');
     const resultsContainer = document.getElementById('mcc-results');
@@ -370,8 +138,8 @@ function initMCCLookup() {
         }
 
         const matches = mccData.filter(item => 
-            item.merchant.toLowerCase().includes(query) || 
-            item.category.toLowerCase().includes(query)
+            (item.merchant && item.merchant.toLowerCase().includes(query)) || 
+            (item.category && item.category.toLowerCase().includes(query))
         );
 
         if (matches.length > 0) {
@@ -399,6 +167,10 @@ function initComparison() {
     const s2 = document.getElementById('card-select-2');
     
     if (!s1 || !s2) return;
+
+    // Clear existing options
+    s1.innerHTML = '<option value="">Select First Card</option>';
+    s2.innerHTML = '<option value="">Select Second Card</option>';
 
     comparisonData.forEach(card => {
         const opt1 = document.createElement('option');
@@ -451,7 +223,6 @@ function initComparison() {
     s2.addEventListener('change', updateCompare);
 }
 
-// Reward Calculator Logic
 function initCalculator() {
     const strategy = document.getElementById('calc-strategy');
     const spend = document.getElementById('calc-spend');
@@ -476,7 +247,7 @@ function initCalculator() {
             annualCash = annualRewards * valuation;
             unit = "Miles";
         } else if (selected === 'cashback') {
-            annualCash = monthlySpend * 0.06 * 12; // 6% avg for optimized cashback
+            annualCash = monthlySpend * 0.06 * 12;
             annualRewards = annualCash;
             unit = "Cashback";
         } else if (selected === 'general') {
@@ -497,7 +268,6 @@ function initCalculator() {
     spend.addEventListener('input', calculate);
     mileValue.addEventListener('input', calculate);
     
-    // Toggle mile valuation visibility
     strategy.addEventListener('change', () => {
         const valGroup = mileValue.parentElement;
         if (strategy.value === 'cashback') {
@@ -510,7 +280,6 @@ function initCalculator() {
     calculate();
 }
 
-// Tab Switching Logic
 function initTabs() {
     const featureItems = document.querySelectorAll('.feature-item');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -518,50 +287,34 @@ function initTabs() {
     featureItems.forEach(item => {
         item.addEventListener('click', () => {
             const target = item.dataset.tab;
-
-            // Update icons
             featureItems.forEach(i => i.classList.remove('active'));
             item.classList.add('active');
-
-            // Update content
             tabContents.forEach(content => {
                 content.classList.remove('active');
                 if (content.id === target) {
                     content.classList.add('active');
                 }
             });
-
-            // Scroll to top of section
             window.scrollTo({ top: document.querySelector('.optimizer-section').offsetTop - 20, behavior: 'smooth' });
         });
     });
 }
 
-// Travel Hack Calculator Logic
 function initTravelCalc() {
     const spendInput = document.getElementById('travel-spend');
     if (!spendInput) return;
-
     const updateTravel = () => {
         const spend = parseFloat(spendInput.value) || 0;
-        
-        // Amaze + 4MPD: 4 MPD, ~1.8% spread
         document.getElementById('amaze-miles').textContent = `${(spend * 4).toLocaleString()} Miles`;
         document.getElementById('amaze-fee').textContent = `S$${(spend * 0.018).toFixed(2)}`;
-
-        // Direct Card: 2.4 MPD, 3.25% fee
         document.getElementById('direct-miles').textContent = `${(spend * 2.4).toLocaleString()} Miles`;
         document.getElementById('direct-fee').textContent = `S$${(spend * 0.0325).toFixed(2)}`;
-
-        // Wallets: 0 Miles, ~0.5% spread
         document.getElementById('wallet-fee').textContent = `S$${(spend * 0.005).toFixed(2)}`;
     };
-
     spendInput.addEventListener('input', updateTravel);
     updateTravel();
 }
 
-// PapaParse local fallback (simulated minimal CSV parser for simple CSV)
 function parseCSV(text) {
     const lines = text.split('\n').filter(line => line.trim() !== '');
     const headers = lines[0].split(',');
@@ -578,19 +331,18 @@ function parseCSV(text) {
 async function loadDataFromCSV() {
     try {
         const response = await fetch('cards.csv');
+        if (!response.ok) throw new Error('CSV not found');
         const csvText = await response.text();
         const rawData = parseCSV(csvText);
         
-        // Rebuild cardData structure
         const newCardData = { miles: {}, cashback: {} };
         const newMccData = [];
         const newComparisonData = [];
 
         rawData.forEach(row => {
-            const type = row.Type; // miles or cashback
+            const type = row.Type;
             const cat = row.Category;
             
-            // Populate Optimizer Data
             if (type === 'miles' || type === 'cashback') {
                 if (!newCardData[type][cat]) newCardData[type][cat] = [];
                 newCardData[type][cat].push({
@@ -602,19 +354,17 @@ async function loadDataFromCSV() {
                 });
             }
 
-            // Populate MCC Data
             if (row.MCC) {
                 newMccData.push({
                     merchant: row.Name,
                     mcc: row.MCC,
                     category: row.Best_For,
-                    card: row.Name, // Simplifying for CSV demo
+                    card: row.Name,
                     rate: row.Reward + ' ' + row.Unit,
                     warning: row.Warning
                 });
             }
 
-            // Populate Comparison Data (Unique names only)
             if (!newComparisonData.find(c => c.name === row.Name) && row.Annual_Fee) {
                 newComparisonData.push({
                     name: row.Name,
@@ -629,36 +379,45 @@ async function loadDataFromCSV() {
             }
         });
 
-        // Update global variables
         window.cardData = newCardData;
         window.mccData = newMccData;
         window.comparisonData = newComparisonData;
-
-        // Re-initialize UI
-        renderCards();
-        initComparison();
-        initMCCLookup();
-        initCalculator();
-        initTabs();
-        initTravelCalc();
-
     } catch (error) {
-        console.error("Error loading CSV:", error);
+        console.warn("CSV load failed, using static fallback:", error);
+        window.cardData = cardData_static;
+        window.mccData = mccData_static;
+        window.comparisonData = comparisonData_static;
     }
+
+    renderCards();
+    initComparison();
+    initMCCLookup();
+    initCalculator();
+    initTabs();
+    initTravelCalc();
 }
 
-// Global data holders
 window.cardData = {};
 window.mccData = [];
 window.comparisonData = [];
 
-// Entry point
 document.addEventListener('DOMContentLoaded', () => {
     loadDataFromCSV();
 });
 
+// Theme Toggle
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+    const body = document.body;
+    if (body.hasAttribute('data-theme')) {
+        body.removeAttribute('data-theme');
+        themeToggle.textContent = '🌙';
+    } else {
+        body.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '☀️';
+    }
+});
 
-// Animation CSS
 const style = document.createElement('style');
 style.textContent = `
     @keyframes fadeInUp {
