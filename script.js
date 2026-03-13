@@ -146,13 +146,14 @@ function initMCCLookup() {
             resultsContainer.innerHTML = matches.map(item => `
                 <div class="mcc-result-item ${item.warning ? 'exclusion' : ''}">
                     <div class="mcc-merchant-info">
-                        <h4>${item.merchant} <span class="mcc-code-tag">MCC ${item.mcc}</span></h4>
-                        <span class="mcc-category">${item.category}</span>
+                        <h4>${item.merchant || 'Unknown Merchant'} <span class="mcc-code-tag">MCC ${item.mcc || 'N/A'}</span></h4>
+                        <span class="mcc-category">${item.category || ''}</span>
                         ${item.warning ? `<div class="mcc-warning">⚠️ ${item.warning}</div>` : ''}
                     </div>
                     <div class="mcc-card-rec">
-                        <span class="mcc-card-name">${item.card}</span>
-                        <span class="mcc-reward-rate">${item.rate}</span>
+                        <small style="color: var(--text-muted); display: block; font-size: 0.7rem; margin-bottom: 2px;">Recommended Card:</small>
+                        <span class="mcc-card-name">${item.card || 'Check bank terms'}</span>
+                        <span class="mcc-reward-rate">${item.rate || ''}</span>
                     </div>
                 </div>
             `).join('');
