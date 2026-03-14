@@ -945,6 +945,87 @@ body {
     background: rgba(239, 68, 68, 0.05);
 }
 
+/* Starter Kits Styles */
+.persona-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.persona-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease;
+}
+
+.persona-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary);
+}
+
+.persona-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.persona-emoji {
+    font-size: 2.5rem;
+}
+
+.persona-card h3 {
+    font-size: 1.25rem;
+    margin: 0;
+    color: var(--text);
+}
+
+.persona-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    height: 60px;
+}
+
+.kit-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.kit-item {
+    background: var(--bg);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.kit-item strong {
+    display: block;
+    color: var(--accent);
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.kit-item span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+@media (max-width: 1000px) {
+    .persona-grid {
+        grid-template-columns: 1fr;
+    }
+    .persona-desc {
+        height: auto;
+    }
+}
+
 /* Footer */
 .footer {
     padding: 60px 0;
