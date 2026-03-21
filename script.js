@@ -267,6 +267,7 @@ function initWhereToSpend() {
                         ⚠️ ${item.warning}
                     </div>
                 `;
+            }
             merchantCards.innerHTML = cardsHtml || '<p>Check bank terms for best rate</p>';
             resultContainer.classList.remove('hidden');
         } else {
