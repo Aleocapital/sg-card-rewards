@@ -222,58 +222,58 @@ function initWhereToSpend() {
     });
 
     function performMerchantSearch(merchantNameQuery) {
-        const matches = mccData.filter(item => 
-            item.merchant && item.merchant.toLowerCase() === merchantNameQuery.toLowerCase()
+        const query = merchantNameQuery.toLowerCase().trim();
+        
+        // Find exact match first, then partial match
+        let matches = mccData.filter(item => 
+            item.merchant && item.merchant.toLowerCase() === query
         );
+        
+        // If no exact match, try partial match
+        if (matches.length === 0) {
+            matches = mccData.filter(item => 
+                item.merchant && item.merchant.toLowerCase().includes(query)
+            );
+        }
 
         if (matches.length > 0) {
             const item = matches[0];
             merchantName.textContent = item.merchant;
             merchantMcc.textContent = `MCC: ${item.mcc || 'N/A'}`;
             
-            // Build card recommendations
+            // Build card recommendations - split by "/" for multiple cards
             let cardsHtml = '';
-            if (item.card) {
-                const rateText = item.rate ? `<span class="card-reward">${item.rate}</span>` : '';
-                cardsHtml += `
-                    <div class="merchant-card-item">
-                        <span class="card-name">${item.card}</span>
-                        ${rateText}
-                    </div>
-                `;
-            }
-            if (item.altCard) {
-                const altRateText = item.altRate ? `<span class="card-reward">${item.altRate}</span>` : '';
-                cardsHtml += `
-                    <div class="merchant-card-item">
-                        <span class="card-name">${item.altCard}</span>
-                        ${altRateText}
-                    </div>
-                `;
+            if (item.card && item.card !== 'None') {
+                const cards = item.card.split(' / ').map(c => c.trim());
+                const rates = item.rate ? item.rate.split(' / ').map(r => r.trim()) : [];
+                
+                cards.forEach((cardName, idx) => {
+                    const rateText = rates[idx] || rates[0] || item.rate || '';
+                    cardsHtml += `
+                        <div class="merchant-card-item">
+                            <span class="card-name">${cardName}</span>
+                            <span class="card-reward">${rateText}</span>
+                        </div>
+                    `;
+                });
+            } else if (item.card === 'None') {
+                cardsHtml = '<div class="merchant-card-item"><span class="card-name">No card earns rewards here</span><span class="card-reward">0%</span></div>';
             }
             
-            // Add generic category recommendations
-            const categoryCards = getCardsForCategory(item.category);
-            if (categoryCards && categoryCards.length > 0) {
-                categoryCards.slice(0, 2).forEach(card => {
-                    if (!cardsHtml.includes(card.name)) {
-                        cardsHtml += `
-                            <div class="merchant-card-item">
-                                <span class="card-name">${card.name}</span>
-                                <span class="card-reward">${card.reward}</span>
-                            </div>
-                        `;
-                    }
-                });
-            }
-
+            // Add warning if exists
+            if (item.warning) {
+                cardsHtml += `
+                    <div class="merchant-warning">
+                        ⚠️ ${item.warning}
+                    </div>
+                `;
             merchantCards.innerHTML = cardsHtml || '<p>Check bank terms for best rate</p>';
             resultContainer.classList.remove('hidden');
         } else {
-            // No direct match - suggest category
+            // No direct match - show "not found"
             merchantName.textContent = merchantNameQuery;
             merchantMcc.textContent = 'MCC: Unknown';
-            merchantCards.innerHTML = '<p>No specific data. Use a general rewards card for this merchant.</p>';
+            merchantCards.innerHTML = '<p>🤔 This merchant isn\'t in our database yet. Try searching for a similar name or check the MCC Lookup tab.</p>';
             resultContainer.classList.remove('hidden');
         }
     }
