@@ -163,6 +163,129 @@ function initMCCLookup() {
     });
 }
 
+// Where to Spend - Merchant Search
+function initWhereToSpend() {
+    const searchInput = document.getElementById('merchant-search');
+    const suggestions = document.getElementById('merchant-suggestions');
+    const resultContainer = document.getElementById('merchant-result');
+    const merchantName = document.getElementById('merchant-name');
+    const merchantMcc = document.getElementById('merchant-mcc');
+    const merchantCards = document.getElementById('merchant-cards');
+    
+    if (!searchInput) return;
+
+    // Popular merchant quick search chips
+    document.querySelectorAll('.merchant-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const merchant = chip.dataset.merchant;
+            searchInput.value = merchant;
+            performMerchantSearch(merchant);
+            suggestions.classList.remove('active');
+        });
+    });
+
+    // Live search
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        
+        if (query.length < 2) {
+            suggestions.classList.remove('active');
+            resultContainer.classList.add('hidden');
+            return;
+        }
+
+        // Find matching merchants
+        const matches = mccData.filter(item => 
+            item.merchant && item.merchant.toLowerCase().includes(query)
+        );
+
+        if (matches.length > 0) {
+            suggestions.innerHTML = matches.slice(0, 8).map(item => `
+                <div class="suggestion-item" data-merchant="${item.merchant}">
+                    <strong>${item.merchant}</strong> — ${item.category || 'General'}
+                </div>
+            `).join('');
+            suggestions.classList.add('active');
+
+            // Click on suggestion
+            suggestions.querySelectorAll('.suggestion-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    searchInput.value = item.dataset.merchant;
+                    performMerchantSearch(item.dataset.merchant);
+                    suggestions.classList.remove('active');
+                });
+            });
+        } else {
+            suggestions.innerHTML = '<div class="suggestion-item">No merchants found</div>';
+            suggestions.classList.add('active');
+        }
+    });
+
+    function performMerchantSearch(merchantNameQuery) {
+        const matches = mccData.filter(item => 
+            item.merchant && item.merchant.toLowerCase() === merchantNameQuery.toLowerCase()
+        );
+
+        if (matches.length > 0) {
+            const item = matches[0];
+            merchantName.textContent = item.merchant;
+            merchantMcc.textContent = `MCC: ${item.mcc || 'N/A'}`;
+            
+            // Build card recommendations
+            let cardsHtml = '';
+            if (item.card) {
+                const rateText = item.rate ? `<span class="card-reward">${item.rate}</span>` : '';
+                cardsHtml += `
+                    <div class="merchant-card-item">
+                        <span class="card-name">${item.card}</span>
+                        ${rateText}
+                    </div>
+                `;
+            }
+            if (item.altCard) {
+                const altRateText = item.altRate ? `<span class="card-reward">${item.altRate}</span>` : '';
+                cardsHtml += `
+                    <div class="merchant-card-item">
+                        <span class="card-name">${item.altCard}</span>
+                        ${altRateText}
+                    </div>
+                `;
+            }
+            
+            // Add generic category recommendations
+            const categoryCards = getCardsForCategory(item.category);
+            if (categoryCards && categoryCards.length > 0) {
+                categoryCards.slice(0, 2).forEach(card => {
+                    if (!cardsHtml.includes(card.name)) {
+                        cardsHtml += `
+                            <div class="merchant-card-item">
+                                <span class="card-name">${card.name}</span>
+                                <span class="card-reward">${card.reward}</span>
+                            </div>
+                        `;
+                    }
+                });
+            }
+
+            merchantCards.innerHTML = cardsHtml || '<p>Check bank terms for best rate</p>';
+            resultContainer.classList.remove('hidden');
+        } else {
+            // No direct match - suggest category
+            merchantName.textContent = merchantNameQuery;
+            merchantMcc.textContent = 'MCC: Unknown';
+            merchantCards.innerHTML = '<p>No specific data. Use a general rewards card for this merchant.</p>';
+            resultContainer.classList.remove('hidden');
+        }
+    }
+
+    // Click outside to close suggestions
+    document.addEventListener('click', (e) => {
+        if (!searchInput.contains(e.target) && !suggestions.contains(e.target)) {
+            suggestions.classList.remove('active');
+        }
+    });
+}
+
 function initComparison() {
     const s1 = document.getElementById('card-select-1');
     const s2 = document.getElementById('card-select-2');
@@ -395,6 +518,7 @@ async function loadDataFromCSV() {
     renderCards();
     initComparison();
     initMCCLookup();
+    initWhereToSpend();
     initCalculator();
     initTabs();
     initTravelCalc();

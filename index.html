@@ -40,6 +40,14 @@
         </div>
     </header>
 
+    <!-- What's New Ticker -->
+    <div class="alert-banner">
+        <div class="container">
+            <span class="alert-badge">🆕 March 2026 Update</span>
+            <span class="alert-text"><strong>HSBC Revolution</strong> contactless bonus extended · <strong>DBS Altitude</strong> 38k sign-up bonus active · <strong>DBS yuu</strong> now requires S$600 min spend</span>
+        </div>
+    </div>
+
     <section class="hero">
         <div class="container">
             <div class="hero-banner-container">
@@ -66,6 +74,10 @@
                 <button class="feature-item" data-tab="starter-kits">
                     <div class="feature-icon-wrapper">🎒</div>
                     <span class="feature-label">Starter Kits</span>
+                </button>
+                <button class="feature-item" data-tab="where-to-spend">
+                    <div class="feature-icon-wrapper">🏪</div>
+                    <span class="feature-label">Where to Spend</span>
                 </button>
                 <button class="feature-item" data-tab="compare">
                     <div class="feature-icon-wrapper">⚖️</div>
@@ -183,6 +195,45 @@
                                     <span>6% on Dining and steady rebates on Utilities.</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Where to Spend -->
+            <div id="where-to-spend" class="tab-content">
+                <div class="container-small">
+                    <h2>🏪 Where to Spend</h2>
+                    <p class="section-intro">Search for a merchant to instantly find the best card to use.</p>
+                    
+                    <div class="merchant-search-wrapper">
+                        <input type="text" id="merchant-search" class="merchant-search" placeholder="Type a merchant (e.g. Lazada, Grab, Cold Storage, Shell...)" autocomplete="off">
+                        <div id="merchant-suggestions" class="merchant-suggestions"></div>
+                    </div>
+                    
+                    <div id="merchant-result" class="merchant-result hidden">
+                        <div class="merchant-card-header">
+                            <h3 id="merchant-name"></h3>
+                            <span id="merchant-mcc" class="merchant-mcc-badge"></span>
+                        </div>
+                        <div id="merchant-cards" class="merchant-cards"></div>
+                    </div>
+
+                    <div class="popular-merchants">
+                        <h4>Popular Searches</h4>
+                        <div class="merchant-chips">
+                            <button class="merchant-chip" data-merchant="Grab">🚗 Grab</button>
+                            <button class="merchant-chip" data-merchant="Lazada">🛒 Lazada</button>
+                            <button class="merchant-chip" data-merchant="Shopee">🛍️ Shopee</button>
+                            <button class="merchant-chip" data-merchant="Cold Storage">🛒 Cold Storage</button>
+                            <button class="merchant-chip" data-merchant="FairPrice">🏪 FairPrice</button>
+                            <button class="merchant-chip" data-merchant="Shell">⛽ Shell</button>
+                            <button class="merchant-chip" data-merchant="Singtel">📱 Singtel</button>
+                            <button class="merchant-chip" data-merchant="Starbucks">☕ Starbucks</button>
+                            <button class="merchant-chip" data-merchant="McDonald's">🍔 McDonald's</button>
+                            <button class="merchant-chip" data-merchant="Zara">👔 Zara</button>
+                            <button class="merchant-chip" data-merchant="Challenger">💻 Challenger</button>
+                            <button class="merchant-chip" data-merchant="iKEA">🪑 IKEA</button>
                         </div>
                     </div>
                 </div>

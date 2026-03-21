@@ -1106,6 +1106,196 @@ body {
     }
 }
 
+/* Alert Banner */
+.alert-banner {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: #f1f5f9;
+    padding: 12px 0;
+    font-size: 0.85rem;
+}
+
+.alert-banner .container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.alert-badge {
+    background: var(--secondary);
+    color: #1e293b;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+.alert-text {
+    color: #cbd5e1;
+}
+
+.alert-text strong {
+    color: var(--secondary);
+}
+
+/* Where to Spend - Merchant Search */
+.merchant-search-wrapper {
+    position: relative;
+    margin: 25px 0;
+}
+
+.merchant-search {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1rem;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    color: var(--text);
+    transition: border-color 0.2s;
+}
+
+.merchant-search:focus {
+    outline: none;
+    border-color: var(--secondary);
+}
+
+.merchant-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-top: 5px;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 100;
+    display: none;
+    box-shadow: var(--shadow);
+}
+
+.merchant-suggestions.active {
+    display: block;
+}
+
+.suggestion-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background: var(--bg);
+}
+
+.suggestion-item strong {
+    color: var(--secondary);
+}
+
+.merchant-result {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow);
+}
+
+.merchant-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.merchant-card-header h3 {
+    font-size: 1.3rem;
+}
+
+.merchant-mcc-badge {
+    background: var(--bg);
+    color: var(--text-muted);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+}
+
+.merchant-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.merchant-card-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--bg);
+    border-radius: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.merchant-card-item .card-name {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.merchant-card-item .card-reward {
+    background: var(--secondary);
+    color: #1e293b;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.popular-merchants {
+    margin-top: 30px;
+}
+
+.popular-merchants h4 {
+    margin-bottom: 15px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.merchant-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.merchant-chip {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 10px 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.merchant-chip:hover {
+    border-color: var(--secondary);
+    background: rgba(245, 158, 11, 0.1);
+}
+
 /* Footer */
 .footer {
     padding: 60px 0;
