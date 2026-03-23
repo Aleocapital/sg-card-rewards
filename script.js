@@ -102,6 +102,24 @@ const comparisonData_static = [
 let currentType = 'miles';
 let currentCategory = 'online';
 
+function initCategoryFilter() {
+    const categoryItems = document.querySelectorAll('.category-item');
+    
+    categoryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const category = item.dataset.category;
+            currentCategory = category;
+            
+            // Update active state
+            categoryItems.forEach(ci => ci.classList.remove('active'));
+            item.classList.add('active');
+            
+            // Re-render cards
+            renderCards();
+        });
+    });
+}
+
 function renderCards() {
     const container = document.getElementById('results-container');
     if (!container) return;
@@ -520,6 +538,7 @@ async function loadDataFromCSV() {
     initComparison();
     initMCCLookup();
     initWhereToSpend();
+    initCategoryFilter();
     initCalculator();
     initTabs();
     initTravelCalc();
